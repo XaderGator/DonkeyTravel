@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
-	<title>Donkey travel</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+        <title> Donkey Travel </title>
+		<meta charset=utf-8>
+		<meta name=description content="beschrijving">
+		<meta name=keywords content="trefword, trefword">
+		<link rel="stylesheet" href="styles.css">
+	
 </head>
 <body>
-
 test
-
 </body>
 </html>
+
+
+
+
