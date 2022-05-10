@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if(empty($username_err) && empty($password_err)){
 
-        $sql = "SELECT Id, Naam, Email, Wachtwoord FROM klanten WHERE Naam = ?";
+        $sql = "SELECT ID, Naam, Email, Wachtwoord FROM klanten WHERE Naam = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
 
