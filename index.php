@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Fietsverhuur Elstar</title>
-	<link rel="stylesheet" type="text/css" href="index.css">
+	<title>Donkey travel</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
