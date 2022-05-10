@@ -12,21 +12,57 @@
 
 <?php
 	include_once 'dbh.php';
+	
+	if(isset($_POST['toevoegen']))
+	{
+		$Vandaag = date("Y-m-d H:i:s");
 
-	$Naam = $_POST['Naam'];
-	$Email = $_POST['Email'];
-	$Telefoon = $_POST['Telefoon'];
-	$Wachtwoord = $_POST['Wachtwoord'];
-	$Gewijzigd = $_POST['Gewijzigd'];
+		$Naam = $_POST['Naam'];
+		$Email = $_POST['Email'];
+		$Telefoon = $_POST['Telefoon'];
+		$Wachtwoord = $_POST['Wachtwoord'];
+		$Gewijzigd = $Vandaag;
 
-
-
-	$sql = "INSERT INTO klanten (Naam, Email, Telefoon, Wachtwoord, Gewijzigd) 
-			VALUES ('$Naam', '$Email', '$Telefoon', '$Wachtwoord', '$Gewijzigd');";
-		mysqli_query($con, $sql);
-
-	header("location: index.php?signup=success");
+		$QueryInsertKlant = "INSERT INTO klanten (Naam, Email, Telefoon, Wachtwoord, Gewijzigd) 
+				VALUES ('$Naam', '$Email', '$Telefoon', '$Wachtwoord', '$Gewijzigd');";
+			mysqli_query($conn, $QueryInsertKlant);
+	}
 ?>
+
+
+<div class="container-fluid containerklant">
+            <form action="registratie.php" method="post">
+                <table class="table table-bordered tableclass" >
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Naam</td>
+                            <td><input type="text" placeholder="Naam" name="Naam" required></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td> Email</td>
+                            <td><input type="text" placeholder="Email" value="" name="Email" required></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Telefoon</td>
+                            <td><input type="text" placeholder="Telefoon" name="Telefoon"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>Wachtwoord</td>
+                            <td><input type="password" placeholder="Wachtwoord" name="Wachtwoord" required></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" align="right"><input type="submit" value="toevoegen" name="toevoegen"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
 
 </body>
 </html>
