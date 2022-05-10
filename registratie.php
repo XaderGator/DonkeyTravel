@@ -15,6 +15,10 @@
 	
 	if(isset($_POST['toevoegen']))
 	{
+
+		//todo check systeem of persoon er al in zit
+
+
 		$Vandaag = date("Y-m-d H:i:s");
 
 		$Naam = $_POST['Naam'];
@@ -26,6 +30,9 @@
 		$QueryInsertKlant = "INSERT INTO klanten (Naam, Email, Telefoon, Wachtwoord, Gewijzigd) 
 				VALUES ('$Naam', '$Email', '$Telefoon', '$Wachtwoord', '$Gewijzigd');";
 			mysqli_query($conn, $QueryInsertKlant);
+
+		header("location: index.php");
+
 	}
 ?>
 
