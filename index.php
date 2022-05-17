@@ -10,20 +10,11 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
 require_once "dbh.php";
  
-
-$username = $password = $email = "";
-$username_err = $password_err = $email_err = $login_err = "";
+$email = $password = "";
+$email_err = $password_err = $login_err = "";
  
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-
-    if(empty(trim($_POST["username"]))){
-        $username_err = "vul jouwn naam in";
-    } else{
-        $username = trim($_POST["username"]);
-    }
-    
+if($_SERVER["REQUEST_METHOD"] == "POST"){   
 
     if(empty(trim($_POST["password"]))){
         $password_err = "vul jouwn wachtwoord in";
@@ -39,16 +30,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 	
 
-    if(empty($username_err) && empty($password_err)){
+    if(empty($email_err) && empty($password_err)){
 
-        $sql = "SELECT ID, Naam, Email, Wachtwoord FROM klanten WHERE Naam = ?";
+        $sql = "SELECT ID, Email, Wachtwoord FROM klanten WHERE Email = ?";
         
         if($stmt = mysqli_prepare($conn, $sql)){
 
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
+            mysqli_stmt_bind_param($stmt, "s", $param_email);
             
 
-            $param_username = $username;
+            $param_email = $email;
             
 
             if(mysqli_stmt_execute($stmt)){
@@ -58,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
 
-                    mysqli_stmt_bind_result($stmt, $id, $username, $email, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
 
@@ -67,19 +58,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-							$_SESSION["email"] = $email; 
-                            $_SESSION["username"] = $username;                            
+							$_SESSION["email"] = $email;                         
                             
 
                             header("location: ingelogd.php");
                         } else{
 
-                            $login_err = "foute naam of wachtwoord";
+                            $login_err = "foute Email of wachtwoord";
                         }
                     }
                 } else{
 
-                    $login_err = "foute naam of wachtwoord";
+                    $login_err = "foute Email of wachtwoord";
                 }
             } else{
                 echo "er is iets fout gegaan probeer later";
@@ -120,12 +110,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }        
         ?>
 
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group">
-                <label>naam</label>
-                <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
-                <span class="invalid-feedback"><?php echo $username_err; ?></span>
-            </div>    
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">  
 			 <div class="form-group">
                 <label>email</label>
                 <input type="email" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
