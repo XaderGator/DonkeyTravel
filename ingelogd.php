@@ -220,34 +220,9 @@
 
 
     <script>
-
-        var Tabsid = "<?php echo $_SESSION['TabId'];?>";
-
-        if(Tabsid == "defaultOpen")
-        {
             document.getElementById("defaultOpen").click();
 
-        }else if(Tabsid == "HerbergenOpen")
-        {
-            document.getElementById("HerbergenOpen").click();
-
-        }else if(Tabsid == "RestaurantsOpen")
-        {
-            document.getElementById("RestaurantsOpen").click();
-
-        }else if(Tabsid == "TochtenOpen")
-        {
-            document.getElementById("TochtenOpen").click();
-            
-        }else if(Tabsid == "statussenOpen")
-        {
-            document.getElementById("statussenOpen").click();
-            
-        }else
-        {
-            document.getElementById("defaultOpen").click();
-
-        }
+        
 
             function tab(evt, tabName) {
             var i, tabcontent, tablinks;
