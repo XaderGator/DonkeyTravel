@@ -1,10 +1,34 @@
     <?php 
         session_start();
-    
+        require_once "dbh.php";
+
+
+            if($_SESSION["loggedin"] == false)
+            {
+                header("location: index.php");
+            }
+
         	if(isset($_POST['Annuleer']))
             {
                 $_SESSION["loggedin"] = false;
                 header("location: index.php");
+            }
+
+            $QueryGasten = "SELECT Naam, Email, Telefoon FROM klanten";
+            $resultgasten=$conn->query($QueryGasten);
+             $GastenTable = '';
+             while ($Gastenrow = $resultgasten->fetch_assoc())  {
+                $GastenTable .="<tr>";
+                $GastenTable .="<td>";
+                $GastenTable .=$Gastenrow['Naam'] . " "; // Naam
+                $GastenTable .="</td>";
+                $GastenTable .="<td>";
+                $GastenTable .=$Gastenrow['Email'] . " "; // Email
+                $GastenTable .="</td>";
+                $GastenTable .="<td>";
+                $GastenTable .=$Gastenrow['Telefoon']; // Telefoon
+                $GastenTable .="</td>";
+                $GastenTable .="</tr>";   
             }
     ?>
 
@@ -43,78 +67,53 @@
                 <button class="tablinks" onclick="tab(event, 'Gasten')" id="defaultOpen">Gasten</button>
                 <button class="tablinks" onclick="tab(event, 'Herbergen')" id="HerbergenOpen">Herbergen</button>
                 <button class="tablinks" onclick="tab(event, 'Restaurants')" id="RestaurantsOpen">Datums</button>
-                <button class="tablinks" onclick="tab(event, 'Overview')" id="overviewOpen">Overview</button>
+                <button class="tablinks" onclick="tab(event, 'Tochten')" id="TochtenOpen">Tochten</button>
                 <button class="tablinks" onclick="tab(event, 'Statussen')" id="statussenOpen">Statussen</button>
             </div>
 
             <div id="Gasten" class="tabcontent">
+                <h1> Gasten</h1>
                 <table class="table table-striped table-hover">
                     <head>
                         <tr class="bg-success">
                             <td>
-                                Omschrijving
+                                Naam
                             </td>
                             <td>
-                                Route naam
+                                Email
                             </td>
                             <td>
-                                Aantal dagen
-                            </td>
-                            <td>
-                                +
+                                Telefoon
                             </td>
                         </tr>
                     </head>
                     <tbody>
-                    <tr>
-                            <td>
-                                Test Omschrijving
-                            </td>
-                            <td>
-                            Test Route naam
-                            </td>
-                            <td>
-                                Test Aantal dagen
-                            </td>
-                            <td>
-                                Delete Update
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Test Omschrijving
-                            </td>
-                            <td>
-                            Test Route naam
-                            </td>
-                            <td>
-                                Test Aantal dagen
-                            </td>
-                            <td>
-                                Delete Update
-                            </td>
-                        </tr>
+                        <?php echo $GastenTable;?>
                     </tbody>    
                 </table>
             </div>
 
             <div id="Herbergen" class="tabcontent">
+            <h1> Herbergen</h1>
 
             </div>
 
             <div id="Restaurants" class="tabcontent">
+            <h1> Restaurants</h1>
 
             </div>
 
-            <div id="Overview" class="tabcontent">
+            <div id="Tochten" class="tabcontent">
+            <h1> Tochten</h1>
 
             </div>
 
             <div id="Statussen" class="tabcontent">
+            <h1> Statussen</h1>
 
             </div>
         </div>
-        
+
         <div class="tab-pane fade" id="Beheer">
 
         </div>
@@ -126,7 +125,33 @@
 
     <script>
 
-        
+        var Tabsid = "<?php echo $_SESSION['TabId'];?>";
+
+        if(Tabsid == "defaultOpen")
+        {
+            document.getElementById("defaultOpen").click();
+
+        }else if(Tabsid == "HerbergenOpen")
+        {
+            document.getElementById("HerbergenOpen").click();
+
+        }else if(Tabsid == "RestaurantsOpen")
+        {
+            document.getElementById("RestaurantsOpen").click();
+
+        }else if(Tabsid == "TochtenOpen")
+        {
+            document.getElementById("TochtenOpen").click();
+            
+        }else if(Tabsid == "statussenOpen")
+        {
+            document.getElementById("statussenOpen").click();
+            
+        }else
+        {
+            document.getElementById("defaultOpen").click();
+
+        }
 
             function tab(evt, tabName) {
             var i, tabcontent, tablinks;
