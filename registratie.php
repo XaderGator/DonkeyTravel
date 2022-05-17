@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-        <title> Donkey Travel </title>
+        <title>Registratie </title>
 		<meta charset=utf-8>
 		<meta name=description content="beschrijving">
 		<meta name=keywords content="trefword, trefword">
