@@ -47,7 +47,7 @@
 
         <div class="container-fluid">
             <form action="ingelogd.php" method="post">
-                 <input type="submit" value="Annuleer" name="Annuleer">
+                 <input type="submit" value="Uitloggen" name="Annuleer">
             </form>
         </div>
         <br />
@@ -95,22 +95,117 @@
 
             <div id="Herbergen" class="tabcontent">
             <h1> Herbergen</h1>
-
+              <table class="table table-striped table-hover">
+                    <head>
+                        <tr class="bg-success">
+                            <td>
+                                Naam
+                            </td>
+                            <td>
+                                Adres
+                            </td>
+                            <td>
+                                Email
+                            </td>
+                            <td>
+                                Telefoon
+                            </td>
+                            <td>
+                                Coördinaten
+                            </td>
+                            <td>
+                                +
+                            </td>
+                        </tr>
+                    </head>
+                    <tbody>
+                        
+                    </tbody>    
+                </table>
             </div>
 
             <div id="Restaurants" class="tabcontent">
             <h1> Restaurants</h1>
-
+              <table class="table table-striped table-hover">
+                    <head>
+                        <tr class="bg-success">
+                            <td>
+                                Naam
+                            </td>
+                            <td>
+                                Adres
+                            </td>
+                            <td>
+                                Email
+                            </td>
+                            <td>
+                                Telefoon
+                            </td>
+                            <td>
+                                Coördinaten
+                            </td>
+                            <td>
+                                +
+                            </td>
+                        </tr>
+                    </head>
+                    <tbody>
+                        
+                    </tbody>    
+                </table>
             </div>
 
             <div id="Tochten" class="tabcontent">
             <h1> Tochten</h1>
-
+                 <table class="table table-striped table-hover">
+                    <head>
+                        <tr class="bg-success">
+                            <td>
+                                Omschrijving
+                            </td>
+                            <td>
+                                Route Naam
+                            </td>
+                            <td>
+                                Aantal Dagen
+                            </td>
+                            <td>
+                                +
+                            </td>
+                        </tr>
+                    </head>
+                    <tbody>
+                        
+                    </tbody>    
+                </table>
             </div>
 
             <div id="Statussen" class="tabcontent">
             <h1> Statussen</h1>
-
+                <table class="table table-striped table-hover">
+                    <head>
+                        <tr class="bg-success">
+                            <td>
+                                Code
+                            </td>
+                            <td>
+                                Status
+                            </td>
+                            <td>
+                                verwijderbaar
+                            </td>
+                            <td>
+                                Pin toekennen
+                            </td>
+                            <td>
+                                +
+                            </td>
+                        </tr>
+                    </head>
+                    <tbody>
+                        
+                    </tbody>    
+                </table>
             </div>
         </div>
 
