@@ -28,19 +28,25 @@
         </div>
         <br />
 
-        <div class="tab">
-            <button class="tablinks" id="mainOpen">Boekingen</button>
-            <button class="tablinks" id="BeheerOpen">Beheer</button>
-        </div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a href="#Boekingen" class="nav-link active" data-bs-toggle="tab">Boekingen</a>
+        </li>
+        <li class="nav-item">
+            <a href="#Beheer" class="nav-link" data-bs-toggle="tab">Beheer</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="Boekingen">
 
-        <div class="tab">
-            <button class="tablinks" onclick="tab(event, 'Gasten')" id="defaultOpen">Gasten</button>
-            <button class="tablinks" onclick="tab(event, 'Herbergen')" id="HerbergenOpen">Herbergen</button>
-            <button class="tablinks" onclick="tab(event, 'Restaurants')" id="RestaurantsOpen">Datums</button>
-            <button class="tablinks" onclick="tab(event, 'Overview')" id="overviewOpen">Overview</button>
-            <button class="tablinks" onclick="tab(event, 'Statussen')" id="statussenOpen">Statussen</button>
-        </div>
-        <div id="Boekingen" class="mainOpen">
+            <div class="tab">
+                <button class="tablinks" onclick="tab(event, 'Gasten')" id="defaultOpen">Gasten</button>
+                <button class="tablinks" onclick="tab(event, 'Herbergen')" id="HerbergenOpen">Herbergen</button>
+                <button class="tablinks" onclick="tab(event, 'Restaurants')" id="RestaurantsOpen">Datums</button>
+                <button class="tablinks" onclick="tab(event, 'Overview')" id="overviewOpen">Overview</button>
+                <button class="tablinks" onclick="tab(event, 'Statussen')" id="statussenOpen">Statussen</button>
+            </div>
+
             <div id="Gasten" class="tabcontent">
                 <table class="table table-striped table-hover">
                     <head>
@@ -108,13 +114,19 @@
 
             </div>
         </div>
+        
+        <div class="tab-pane fade" id="Beheer">
 
-       
+        </div>
+    </div>
+    
 
     
 
 
     <script>
+
+        
 
             function tab(evt, tabName) {
             var i, tabcontent, tablinks;
