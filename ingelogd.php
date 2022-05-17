@@ -67,7 +67,7 @@
             <div class="tab">
                 <button class="tablinks" onclick="tab(event, 'Gasten')" id="defaultOpen">Gasten</button>
                 <button class="tablinks" onclick="tab(event, 'Herbergen')" id="HerbergenOpen">Herbergen</button>
-                <button class="tablinks" onclick="tab(event, 'Restaurants')" id="RestaurantsOpen">Datums</button>
+                <button class="tablinks" onclick="tab(event, 'Restaurants')" id="RestaurantsOpen">Restaurants</button>
                 <button class="tablinks" onclick="tab(event, 'Tochten')" id="TochtenOpen">Tochten</button>
                 <button class="tablinks" onclick="tab(event, 'Statussen')" id="statussenOpen">Statussen</button>
             </div>
