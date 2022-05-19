@@ -74,12 +74,16 @@
                             <td>Wachtwoord</td>
                             <td><input type="password" placeholder="Wachtwoord" name="Wachtwoord"></td>
                         </tr>
-                        <tr>
+                       <div class="toevoegen" <tr>
                             <td colspan="4" align="right"><input type="submit" value="toevoegen" name="toevoegen"></td>
                         </tr>
-						<tr>
+                        </div>
+						<div class="annuleer">
+                        <tr>
                             <td colspan="4" align="right"><input type="submit" value="Annuleer" name="Annuleer"></td>
                         </tr>
+                        </div>
+                        </div>
                     </tbody>
                 </table>
             </form>
