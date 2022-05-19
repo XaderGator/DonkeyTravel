@@ -14,6 +14,16 @@
                 header("location: index.php");
             }
 
+            if(isset($_POST['Bewerken']))
+            {
+                $herbergNaam = $_POST['naam'];
+                $herbergAdres = $_POST['Adres'];
+                $herbergEmail = $_POST['Email'];
+                $herbergTelefoon = $_POST['Telefoon'];
+                $herbergCoördinaten = $_POST['Coördinaten'];
+                
+            }
+
             $QueryGasten = "SELECT Naam, Email, Telefoon FROM klanten";
             $resultgasten=$conn->query($QueryGasten);
              $GastenTable = '';
@@ -39,8 +49,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="css/styles.css">
 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -137,24 +147,24 @@
         $var = '<form action="ingelogd.php" method="post">';
         $var .= '<div class="form-group">';
         $var .= '<label>Naam:</label>';
-        $var .= '<input type="naam" name="naam" class="form-control" value="">';
+        $var .= '<input id="Naamherberg" type="naam" name="naam" class="form-control">';
         $var .= '</div><div class="form-group">';
         $var .= '<label>Adres:</label>';
-        $var .= '<input type="Adres" name="Adres" class="form-control" value="">';
+        $var .= '<input type="Adres" name="Adres" class="form-control">';
         $var .= '</div><div class="form-group">';
         $var .= '<label>Email:</label>';
-        $var .= '<input type="Email" name="Email" class="form-control" value="">';
+        $var .= '<input type="Email" name="Email" class="form-control">';
         $var .= '</div><div class="form-group">';
         $var .= '<label>Telefoon:</label>';
-        $var .= '<input type="Telefoon" name="Telefoon" class="form-control" value="">';
+        $var .= '<input type="Telefoon" name="Telefoon" class="form-control">';
         $var .= '</div><div class="form-group">';
         $var .= '<label>Coördinaten:</label>';
-        $var .= '<input type="Coördinaten" name="Coördinaten" class="form-control" value="">';
+        $var .= '<input type="Coördinaten" name="Coördinaten" class="form-control">';
         $var .= '</div><div class="form-group">';
         $var .= '<br />';
-        $var .= '<input type="submit" class="btn btn-primary" value="Bewerken">';
+        $var .= '<input type="submit" class="btn btn-success" name="Bewerken" value="Bewerken">';
         $var .= '  ';
-        $var .= '<input type="submit" class="btn btn-primary" value="Annuleren">';
+        $var .= '<input type="submit" class="btn btn-warning" name="Annuleren" value="Annuleren">';
         $var .= '</div>';
         $var .= '</form>';
 ?>

@@ -5,7 +5,7 @@
 		<meta charset=utf-8>
 		<meta name=description content="beschrijving">
 		<meta name=keywords content="trefword, trefword">
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="style.css">
         <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
@@ -46,44 +46,28 @@
 
 	}
 ?>
-
-
-<div class="container-fluid containerklant">
-            <form action="registratie.php" method="post">
-                <table class="table table-bordered tableclass" >
-                    <thead>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>Naam</td>
-                            <td><input type="text" placeholder="Naam" name="Naam"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td> Email</td>
-                            <td><input type="text" placeholder="Email" value="" name="Email"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>Telefoon</td>
-                            <td><input type="text" placeholder="Telefoon" name="Telefoon"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>Wachtwoord</td>
-                            <td><input type="password" placeholder="Wachtwoord" name="Wachtwoord"></td>
-                        </tr>
-                        <tr>
-                            <td colspan="4" align="right"><input type="submit" value="toevoegen" name="toevoegen"></td>
-                        </tr>
-						<tr>
-                            <td colspan="4" align="right"><input type="submit" value="Annuleer" name="Annuleer"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
+<div class="user">
+    <header class="user__header">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+        <h1 class="user__title">Registreer</h1>
+    </header>
+    
+    <form class="form">
+        <div class="form__group">
+            <input type="text" placeholder="Username" class="form__input" />
         </div>
+        
+        <div class="form__group">
+            <input type="email" placeholder="Email" class="form__input" />
+        </div>
+        
+        <div class="form__group">
+            <input type="password" placeholder="Password" class="form__input" />
+        </div>
+        
+        <button class="btn" type="button">Registreer</button>
+    </form>
+    </div>
 
 </body>
 </html>
