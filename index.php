@@ -101,8 +101,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
     <div class="wrapper">
-        <h2>Login</h2>
-        <p>Login Hier</p>
+        <h2>Mijn Donkey Travel inloggen</h2>
 
         <?php 
         if(!empty($login_err)){
@@ -112,19 +111,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">  
 			 <div class="form-group">
-                <label>email</label>
+                <label>E-mailadres</label>
                 <input type="email" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
                 <span class="invalid-feedback"><?php echo $email_err; ?></span>
             </div>  
             <div class="form-group">
-                <label>wachtwoord</label>
+                <label>Wachtwoord</label>
                 <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+            <div class="button">
+                <input type="submit" class="btn " value="Login">
             </div>
-            <p>geen account? <a href="registratie.php">registreer  nu</a>.</p>
+            <p>Nog geen account?.</p>
+            <button onclick="registratie.php">Maak er hier eentje aan!</button>
             
         </form>
     </div>
