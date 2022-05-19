@@ -38,11 +38,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script><title>Ingelogd</title>
-    <title>ingelogd </title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    
+    <title>Ingelogd </title>
 </head>
 <body>
 
@@ -115,7 +122,9 @@
                                 Coördinaten
                             </td>
                             <td>
-                                +
+                                <button type="button" class="btn btn-info" onclick="OpenSwalHerbegen()">
+                                    <i class="fa fa-plus"></i>
+                                </button>
                             </td>
                         </tr>
                     </head>
@@ -123,6 +132,55 @@
                         
                     </tbody>    
                 </table>
+
+        <?php 
+        $var = '<form action="ingelogd.php" method="post">';
+        $var .= '<div class="form-group">';
+        $var .= '<label>Naam:</label>';
+        $var .= '<input id="Naamherberg" type="naam" name="naam" class="form-control">';
+        $var .= '</div><div class="form-group">';
+        $var .= '<label>Adres:</label>';
+        $var .= '<input type="Adres" name="Adres" class="form-control">';
+        $var .= '</div><div class="form-group">';
+        $var .= '<label>Email:</label>';
+        $var .= '<input type="Email" name="Email" class="form-control">';
+        $var .= '</div><div class="form-group">';
+        $var .= '<label>Telefoon:</label>';
+        $var .= '<input type="Telefoon" name="Telefoon" class="form-control">';
+        $var .= '</div><div class="form-group">';
+        $var .= '<label>Coördinaten:</label>';
+        $var .= '<input type="Coördinaten" name="Coördinaten" class="form-control">';
+        $var .= '</div><div class="form-group">';
+        $var .= '<br />';
+        $var .= '<input type="submit" class="btn btn-success" value="Bewerken">';
+        $var .= '  ';
+        $var .= '<input type="submit" class="btn btn-warning" value="Annuleren">';
+        $var .= '</div>';
+        $var .= '</form>';
+?>
+                <script type="text/javascript">
+                    
+                    function OpenSwalHerbegen()
+                    {
+                        var title = "Nieuwe Herberg";
+                        var html = '<?php echo $var;?>';
+
+                        Swal.fire({
+                        title: "<b><h2>"+title+"</h2></b>", 
+                        html: html,  
+                        showCancelButton: false, 
+                        showConfirmButton: false,
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        }
+                        });
+                    }
+
+                </script>
+
             </div>
 
             <div id="Restaurants" class="tabcontent">
@@ -238,6 +296,7 @@
             evt.currentTarget.className += " active";
             }
             
+
 
 
         </script>
