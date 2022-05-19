@@ -121,7 +121,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
             <div class="button">
-                <input type="submit" class="btn " value="Login">
+                <input type="submit" value="Login">
             </div>
             <p>Nog geen account?.</p>
             <button onclick="registratie.php">Maak er hier eentje aan!</button>
