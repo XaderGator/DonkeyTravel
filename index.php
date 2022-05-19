@@ -124,10 +124,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="submit" value="Login">
             </div>
             <p>Nog geen account?.</p>
-            <button onclick="registratie.php">Maak er hier eentje aan!</button>
+            <a href="registratie.php">Maak er hier eentje aan!</a>
             
         </form>
     </div>
 </body>
 </html>
-
