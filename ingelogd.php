@@ -14,13 +14,43 @@
                 header("location: index.php");
             }
 
-            if(isset($_POST['Bewerken']))
+            if(isset($_POST['BewarenHerberg']))
             {
+		        $Vandaag = date("Y-m-d H:i:s");
+
                 $herbergNaam = $_POST['naam'];
                 $herbergAdres = $_POST['Adres'];
                 $herbergEmail = $_POST['Email'];
                 $herbergTelefoon = $_POST['Telefoon'];
                 $herbergCoördinaten = $_POST['Coördinaten'];
+
+                    $Gewijzigd = $Vandaag;
+
+                    $QueryInsertHerberg = "INSERT INTO herbergen (Naam, Adres, Email, Telefoon, Coordinaten, Gewijzigd) 
+                            VALUES ('$herbergNaam', '$herbergAdres', '$herbergEmail', '$herbergTelefoon', '$herbergCoördinaten', '$Gewijzigd');";
+                    mysqli_query($conn, $QueryInsertHerberg);
+            
+                    header("location: ingelogd.php");
+                
+            }
+
+            if(isset($_POST['BewarenRestaurant']))
+            {
+		        $Vandaag = date("Y-m-d H:i:s");
+
+                $restaurantsNaam = $_POST['naam'];
+                $restaurantsAdres = $_POST['Adres'];
+                $restaurantsEmail = $_POST['Email'];
+                $restaurantsTelefoon = $_POST['Telefoon'];
+                $restaurantsCoördinaten = $_POST['Coördinaten'];
+
+                    $Gewijzigd = $Vandaag;
+
+                    $QueryInsertrestaurants = "INSERT INTO restaurants (Naam, Adres, Email, Telefoon, Coordinaten, Gewijzigd) 
+                            VALUES ('$restaurantsNaam', '$restaurantsAdres', '$restaurantsEmail', '$restaurantsTelefoon', '$restaurantsCoördinaten', '$Gewijzigd');";
+                    mysqli_query($conn, $QueryInsertrestaurants);
+            
+                    header("location: ingelogd.php");
                 
             }
 
@@ -39,6 +69,58 @@
                 $GastenTable .=$Gastenrow['Telefoon']; // Telefoon
                 $GastenTable .="</td>";
                 $GastenTable .="</tr>";   
+            }
+
+            $QueryHerberg = "SELECT Naam, Adres, Email, Telefoon, Coordinaten FROM herbergen";
+            $resultHerberg=$conn->query($QueryHerberg);
+             $HerbergTable = '';
+             while ($Herbergrow = $resultHerberg->fetch_assoc())  {
+                $HerbergTable .="<tr>";
+                $HerbergTable .="<td>";
+                $HerbergTable .=$Herbergrow['Naam'] . " "; // Naam
+                $HerbergTable .="</td>";
+                $HerbergTable .="<td>";
+                $HerbergTable .=$Herbergrow['Adres'] . " "; // Adres
+                $HerbergTable .="</td>";
+                $HerbergTable .="<td>";
+                $HerbergTable .=$Herbergrow['Email'] . " "; // Email
+                $HerbergTable .="</td>";
+                $HerbergTable .="<td>";
+                $HerbergTable .=$Herbergrow['Telefoon']; // Telefoon
+                $HerbergTable .="</td>";
+                $HerbergTable .="<td>";
+                $HerbergTable .=$Herbergrow['Coordinaten']; // Coordinaten
+                $HerbergTable .="</td>";
+                $HerbergTable .="<td>";
+                $HerbergTable .= ""; // Extra
+                $HerbergTable .="</td>";
+                $HerbergTable .="</tr>";   
+            }
+
+            $Queryrestaurants = "SELECT Naam, Adres, Email, Telefoon, Coordinaten FROM restaurants";
+            $resultrestaurants=$conn->query($Queryrestaurants);
+             $restaurantsTable = '';
+             while ($restaurantsrow = $resultrestaurants->fetch_assoc())  {
+                $restaurantsTable .="<tr>";
+                $restaurantsTable .="<td>";
+                $restaurantsTable .=$restaurantsrow['Naam'] . " "; // Naam
+                $restaurantsTable .="</td>";
+                $restaurantsTable .="<td>";
+                $restaurantsTable .=$restaurantsrow['Adres'] . " "; // Adres
+                $restaurantsTable .="</td>";
+                $restaurantsTable .="<td>";
+                $restaurantsTable .=$restaurantsrow['Email'] . " "; // Email
+                $restaurantsTable .="</td>";
+                $restaurantsTable .="<td>";
+                $restaurantsTable .=$restaurantsrow['Telefoon']; // Telefoon
+                $restaurantsTable .="</td>";
+                $restaurantsTable .="<td>";
+                $restaurantsTable .=$restaurantsrow['Coordinaten']; // Coordinaten
+                $restaurantsTable .="</td>";
+                $restaurantsTable .="<td>";
+                $restaurantsTable .= ""; // Extra
+                $restaurantsTable .="</td>";
+                $restaurantsTable .="</tr>";   
             }
     ?>
 
@@ -139,41 +221,41 @@
                         </tr>
                     </head>
                     <tbody>
-                        
+                         <?php echo $HerbergTable;?>
                     </tbody>    
                 </table>
 
         <?php 
-        $var = '<form action="ingelogd.php" method="post">';
-        $var .= '<div class="form-group">';
-        $var .= '<label>Naam:</label>';
-        $var .= '<input id="Naamherberg" type="naam" name="naam" class="form-control">';
-        $var .= '</div><div class="form-group">';
-        $var .= '<label>Adres:</label>';
-        $var .= '<input type="Adres" name="Adres" class="form-control">';
-        $var .= '</div><div class="form-group">';
-        $var .= '<label>Email:</label>';
-        $var .= '<input type="Email" name="Email" class="form-control">';
-        $var .= '</div><div class="form-group">';
-        $var .= '<label>Telefoon:</label>';
-        $var .= '<input type="Telefoon" name="Telefoon" class="form-control">';
-        $var .= '</div><div class="form-group">';
-        $var .= '<label>Coördinaten:</label>';
-        $var .= '<input type="Coördinaten" name="Coördinaten" class="form-control">';
-        $var .= '</div><div class="form-group">';
-        $var .= '<br />';
-        $var .= '<input type="submit" class="btn btn-success" name="Bewerken" value="Bewerken">';
-        $var .= '  ';
-        $var .= '<input type="submit" class="btn btn-warning" name="Annuleren" value="Annuleren">';
-        $var .= '</div>';
-        $var .= '</form>';
-?>
+            $varHerberg = '<form action="ingelogd.php" method="post" autocomplete="off">';
+            $varHerberg .= '<div class="form-group">';
+            $varHerberg .= '<label>Naam:</label>';
+            $varHerberg .= '<input type="text" placeholder="Naam" name="naam" class="form-control">';
+            $varHerberg .= '</div><div class="form-group">';
+            $varHerberg .= '<label>Adres:</label>';
+            $varHerberg .= '<input type="text" placeholder="Adres" name="Adres" class="form-control">';
+            $varHerberg .= '</div><div class="form-group">';
+            $varHerberg .= '<label>Email:</label>';
+            $varHerberg .= '<input type="text" placeholder="Email" name="Email" class="form-control">';
+            $varHerberg .= '</div><div class="form-group">';
+            $varHerberg .= '<label>Mobiel Telefoonnummer:</label>';
+            $varHerberg .= '<input type="text" placeholder="Telefoonnumer" name="Telefoon" class="form-control">';
+            $varHerberg .= '</div><div class="form-group">';
+            $varHerberg .= '<label>Coördinaten:</label>';
+            $varHerberg .= '<input type="text" placeholder="Coördinaten N??.????? E??.?????" name="Coördinaten" class="form-control">';
+            $varHerberg .= '</div><div class="form-group">';
+            $varHerberg .= '<br />';
+            $varHerberg .= '<input type="submit" class="btn btn-success" name="BewarenHerberg" value="Bewaren">';
+            $varHerberg .= '  ';
+            $varHerberg .= '<input type="submit" class="btn btn-warning" name="Annuleren" value="Annuleren">';
+            $varHerberg .= '</div>';
+            $varHerberg .= '</form>';
+        ?>
                 <script type="text/javascript">
                     
                     function OpenSwalHerbegen()
                     {
                         var title = "Nieuwe Herberg";
-                        var html = '<?php echo $var;?>';
+                        var html = '<?php echo $varHerberg;?>';
 
                         Swal.fire({
                         title: "<b><h2>"+title+"</h2></b>", 
@@ -214,14 +296,63 @@
                                 Coördinaten
                             </td>
                             <td>
-                                +
+                                 <button type="button" class="btn btn-info" onclick="OpenSwalRestaurants()">
+                                    <i class="fa fa-plus"></i>
+                                </button>
                             </td>
                         </tr>
                     </head>
                     <tbody>
-                        
+                        <?php echo $restaurantsTable;?>
                     </tbody>    
                 </table>
+
+                <?php 
+                    $varRestaurants = '<form action="ingelogd.php" method="post" autocomplete="off">';
+                    $varRestaurants .= '<div class="form-group">';
+                    $varRestaurants .= '<label>Naam:</label>';
+                    $varRestaurants .= '<input type="text" placeholder="Naam" name="naam" class="form-control">';
+                    $varRestaurants .= '</div><div class="form-group">';
+                    $varRestaurants .= '<label>Adres:</label>';
+                    $varRestaurants .= '<input type="text" placeholder="Adres" name="Adres" class="form-control">';
+                    $varRestaurants .= '</div><div class="form-group">';
+                    $varRestaurants .= '<label>Email:</label>';
+                    $varRestaurants .= '<input type="text" placeholder="Email" name="Email" class="form-control">';
+                    $varRestaurants .= '</div><div class="form-group">';
+                    $varRestaurants .= '<label>Mobiel Telefoonnummer:</label>';
+                    $varRestaurants .= '<input type="text" placeholder="Telefoonnumer" name="Telefoon" class="form-control">';
+                    $varRestaurants .= '</div><div class="form-group">';
+                    $varRestaurants .= '<label>Coördinaten:</label>';
+                    $varRestaurants .= '<input type="text" placeholder="Coördinaten N??.????? E??.?????" name="Coördinaten" class="form-control">';
+                    $varRestaurants .= '</div><div class="form-group">';
+                    $varRestaurants .= '<br />';
+                    $varRestaurants .= '<input type="submit" class="btn btn-success" name="BewarenRestaurant" value="Bewaren">';
+                    $varRestaurants .= '  ';
+                    $varRestaurants .= '<input type="submit" class="btn btn-warning" name="Annuleren" value="Annuleren">';
+                    $varRestaurants .= '</div>';
+                    $varRestaurants .= '</form>';
+                ?>
+
+                <script>
+                function OpenSwalRestaurants()
+                    {
+                        var title = "Nieuwe Restaurant";
+                        var html = '<?php echo $varRestaurants;?>';
+
+                        Swal.fire({
+                        title: "<b><h2>"+title+"</h2></b>", 
+                        html: html,  
+                        showCancelButton: false, 
+                        showConfirmButton: false,
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        }
+                        });
+                    }
+                </script>
             </div>
 
             <div id="Tochten" class="tabcontent">

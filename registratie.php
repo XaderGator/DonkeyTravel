@@ -49,7 +49,7 @@
 
 
 <div class="container-fluid containerklant">
-            <form action="registratie.php" method="post">
+            <form action="registratie.php" method="post" autocomplete="off">
                 <table class="table table-bordered tableclass" >
                     <thead>
                     </thead>
