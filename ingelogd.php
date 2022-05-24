@@ -74,14 +74,24 @@
 
                 $StatusCode = $_POST['StatusCode'];
                 $StatusOmschrijving = $_POST['StatusOmschrijving'];
-                $StatusVerwijderbaar = $_POST['Verwijderbaar'];
-                $StatusPinToekennen = $_POST['PinToekennen'];
+
+                if (isset($_POST['Verwijderbaar'])) {
+                    $StatusVerwijderbaar = $_POST['Verwijderbaar'];
+                } else {
+                    $StatusVerwijderbaar = '0';
+                }
+
+                if (isset($_POST['PinToekennen'])) {
+                    $StatusPinToekennen = $_POST['PinToekennen'];
+                } else {
+                    $StatusPinToekennen = '0';
+                }
 
                     $QueryInsertStatus = "INSERT INTO statussen (StatusCode, Status, Verwijderbaar, PINtoekennen) 
                             VALUES ('$StatusCode', '$StatusOmschrijving', '$StatusVerwijderbaar', '$StatusPinToekennen');";
                     mysqli_query($conn, $QueryInsertStatus);
             
-                    header("location: ingelogd.php");
+                    // header("location: ingelogd.php");
                 
             }
 
@@ -178,6 +188,21 @@
             $resultStatus=$conn->query($QueryStatussen);
              $StatusTable = '';
              while ($Statusrow = $resultStatus->fetch_assoc())  {
+                 if($Statusrow['Verwijderbaar'] == '1')
+                 {
+                    $StatusVerwijder = 'Ja';
+                 }else
+                 {
+                    $StatusVerwijder = 'nee';
+                 }
+
+                 if($Statusrow['PINtoekennen'] == '1')
+                 {
+                    $StatusPin = 'Ja';
+                 }else
+                 {
+                    $StatusPin = 'nee';
+                 }
                 $StatusTable .="<tr>";
                 $StatusTable .="<td>";
                 $StatusTable .=$Statusrow['StatusCode'] . " "; // StatusCode
@@ -186,10 +211,10 @@
                 $StatusTable .=$Statusrow['Status'] . " "; // Status
                 $StatusTable .="</td>";
                 $StatusTable .="<td>";
-                $StatusTable .=$Statusrow['Verwijderbaar'] . " "; // Verwijderbaar
+                $StatusTable .=$StatusVerwijder . " "; // Verwijderbaar
                 $StatusTable .="</td>";
                 $StatusTable .="<td>";
-                $StatusTable .=$Statusrow['PINtoekennen'] . " "; // PINtoekennen
+                $StatusTable .=$StatusPin . " "; // PINtoekennen
                 $StatusTable .="</td>";
                 $StatusTable .="<td>";
                 $StatusTable .= ""; // Extra
@@ -536,9 +561,9 @@
             $varStatus .= '<label>Status Omschrijving:</label>';
             $varStatus .= '<input type="text" placeholder="Status Omschrijving" name="StatusOmschrijving" class="form-control">';
             $varStatus .= '</div><div class="form-group">';
-            $varStatus .= '<input type="checkbox" name="Verwijderbaar" value="Verwijderbaar">';
+            $varStatus .= '<input type="checkbox" name="Verwijderbaar" value="1">';
             $varStatus .= '<label>Verwijderbaar</label><br>';
-            $varStatus .= '<input type="checkbox" name="PinToekennen" value="PinToekennen">';
+            $varStatus .= '<input type="checkbox" name="PinToekennen" value="1">';
             $varStatus .= '<label>Pin Toekennen</label><br>';
             $varStatus .= '</div><div class="form-group">';
             $varStatus .= '<br />';
