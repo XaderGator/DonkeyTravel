@@ -6,7 +6,10 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: ingelogd.php");
     exit;
 }
- 
+if(isset($_POST['Maakerhiereentjeaan!']))
+{
+    header("location: registratie.php");
+}
 
 require_once "dbh.php";
  
@@ -124,7 +127,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="submit" value="Login">
             </div>
             <p>Nog geen account?.</p>
-            <a href="registratie.php">Maak er hier eentje aan!</a>
+            <input type="submit" value="Maak er hier eentje aan!" name="Maakerhiereentjeaan!">
             
         </form>
     </div>
