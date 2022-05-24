@@ -54,6 +54,37 @@
                 
             }
 
+            if(isset($_POST['BewarenTocht']))
+            {
+
+                $TochtOmschrijving = $_POST['Omschrijving'];
+                $TochtRouteNaam = $_POST['RouteNaam'];
+                $TochtAantalDagen = $_POST['AantalDagen'];
+
+                    $QueryInsertTocht = "INSERT INTO tochten (Omschrijving, Route, AantalDagen) 
+                            VALUES ('$TochtOmschrijving', '$TochtRouteNaam', '$TochtAantalDagen');";
+                    mysqli_query($conn, $QueryInsertTocht);
+            
+                    header("location: ingelogd.php");
+                
+            }
+
+            if(isset($_POST['BewarenStatus']))
+            {
+
+                $StatusCode = $_POST['StatusCode'];
+                $StatusOmschrijving = $_POST['StatusOmschrijving'];
+                $StatusVerwijderbaar = $_POST['Verwijderbaar'];
+                $StatusPinToekennen = $_POST['PinToekennen'];
+
+                    $QueryInsertStatus = "INSERT INTO statussen (StatusCode, Status, Verwijderbaar, PINtoekennen) 
+                            VALUES ('$StatusCode', '$StatusOmschrijving', '$StatusVerwijderbaar', '$StatusPinToekennen');";
+                    mysqli_query($conn, $QueryInsertStatus);
+            
+                    header("location: ingelogd.php");
+                
+            }
+
             $QueryGasten = "SELECT Naam, Email, Telefoon FROM klanten";
             $resultgasten=$conn->query($QueryGasten);
              $GastenTable = '';
@@ -121,6 +152,49 @@
                 $restaurantsTable .= ""; // Extra
                 $restaurantsTable .="</td>";
                 $restaurantsTable .="</tr>";   
+            }
+
+            $QueryTochten = "SELECT Omschrijving, Route, AantalDagen FROM tochten";
+            $resultTochten=$conn->query($QueryTochten);
+             $TochtenTable = '';
+             while ($Tochtenrow = $resultTochten->fetch_assoc())  {
+                $TochtenTable .="<tr>";
+                $TochtenTable .="<td>";
+                $TochtenTable .=$Tochtenrow['Omschrijving'] . " "; // Omschrijving
+                $TochtenTable .="</td>";
+                $TochtenTable .="<td>";
+                $TochtenTable .=$Tochtenrow['Route'] . " "; // Route
+                $TochtenTable .="</td>";
+                $TochtenTable .="<td>";
+                $TochtenTable .=$Tochtenrow['AantalDagen'] . " "; // AantalDagen
+                $TochtenTable .="</td>";
+                $TochtenTable .="<td>";
+                $TochtenTable .= ""; // Extra
+                $TochtenTable .="</td>";
+                $TochtenTable .="</tr>";   
+            }
+
+            $QueryStatussen = "SELECT StatusCode, Status, Verwijderbaar, PINtoekennen FROM statussen";
+            $resultStatus=$conn->query($QueryStatussen);
+             $StatusTable = '';
+             while ($Statusrow = $resultStatus->fetch_assoc())  {
+                $StatusTable .="<tr>";
+                $StatusTable .="<td>";
+                $StatusTable .=$Statusrow['StatusCode'] . " "; // StatusCode
+                $StatusTable .="</td>";
+                $StatusTable .="<td>";
+                $StatusTable .=$Statusrow['Status'] . " "; // Status
+                $StatusTable .="</td>";
+                $StatusTable .="<td>";
+                $StatusTable .=$Statusrow['Verwijderbaar'] . " "; // Verwijderbaar
+                $StatusTable .="</td>";
+                $StatusTable .="<td>";
+                $StatusTable .=$Statusrow['PINtoekennen'] . " "; // PINtoekennen
+                $StatusTable .="</td>";
+                $StatusTable .="<td>";
+                $StatusTable .= ""; // Extra
+                $StatusTable .="</td>";
+                $StatusTable .="</tr>";   
             }
     ?>
 
@@ -370,14 +444,58 @@
                                 Aantal Dagen
                             </td>
                             <td>
-                                +
+                                  <button type="button" class="btn btn-info" onclick="OpenSwalTochten()">
+                                    <i class="fa fa-plus"></i>
+                                </button>
                             </td>
                         </tr>
                     </head>
                     <tbody>
-                        
+                        <?php echo $TochtenTable;?>
                     </tbody>    
                 </table>
+
+                <?php 
+            $varTocht = '<form action="ingelogd.php" method="post" autocomplete="off">';
+            $varTocht .= '<div class="form-group">';
+            $varTocht .= '<label>Omschrijvingen:</label>';
+            $varTocht .= '<input type="text" placeholder="Omschrijving" name="Omschrijving" class="form-control">';
+            $varTocht .= '</div><div class="form-group">';
+            $varTocht .= '<label>Route Naam:</label>';
+            $varTocht .= '<input type="text" placeholder="Route Naam" name="RouteNaam" class="form-control">';
+            $varTocht .= '</div><div class="form-group">';
+            $varTocht .= '<label>Aantal Dagen:</label>';
+            $varTocht .= '<input type="number" placeholder="Aantal Dagen" name="AantalDagen" class="form-control">';
+            $varTocht .= '</div><div class="form-group">';
+            $varTocht .= '<br />';
+            $varTocht .= '<input type="submit" class="btn btn-success" name="BewarenTocht" value="Bewaren">';
+            $varTocht .= '  ';
+            $varTocht .= '<input type="submit" class="btn btn-warning" name="Annuleren" value="Annuleren">';
+            $varTocht .= '</div>';
+            $varTocht .= '</form>';
+        ?>
+                <script type="text/javascript">
+                    
+                    function OpenSwalTochten()
+                    {
+                        var title = "Nieuwe Tocht";
+                        var html = '<?php echo $varTocht;?>';
+
+                        Swal.fire({
+                        title: "<b><h2>"+title+"</h2></b>", 
+                        html: html,  
+                        showCancelButton: false, 
+                        showConfirmButton: false,
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        }
+                        });
+                    }
+
+                </script>
             </div>
 
             <div id="Statussen" class="tabcontent">
@@ -398,14 +516,60 @@
                                 Pin toekennen
                             </td>
                             <td>
-                                +
+                                 <button type="button" class="btn btn-info" onclick="OpenSwalStatussen()">
+                                    <i class="fa fa-plus"></i>
+                                </button>
                             </td>
                         </tr>
                     </head>
                     <tbody>
-                        
+                    <?php echo $StatusTable;?>
                     </tbody>    
                 </table>
+
+                <?php 
+            $varStatus = '<form action="ingelogd.php" method="post" autocomplete="off">';
+            $varStatus .= '<div class="form-group">';
+            $varStatus .= '<label>StatusCode:</label>';
+            $varStatus .= '<input type="number" placeholder="StatusCode" name="StatusCode" class="form-control">';
+            $varStatus .= '</div><div class="form-group">';
+            $varStatus .= '<label>Status Omschrijving:</label>';
+            $varStatus .= '<input type="text" placeholder="Status Omschrijving" name="StatusOmschrijving" class="form-control">';
+            $varStatus .= '</div><div class="form-group">';
+            $varStatus .= '<input type="checkbox" name="Verwijderbaar" value="Verwijderbaar">';
+            $varStatus .= '<label>Verwijderbaar</label><br>';
+            $varStatus .= '<input type="checkbox" name="PinToekennen" value="PinToekennen">';
+            $varStatus .= '<label>Pin Toekennen</label><br>';
+            $varStatus .= '</div><div class="form-group">';
+            $varStatus .= '<br />';
+            $varStatus .= '<input type="submit" class="btn btn-success" name="BewarenStatus" value="Bewaren">';
+            $varStatus .= '  ';
+            $varStatus .= '<input type="submit" class="btn btn-warning" name="Annuleren" value="Annuleren">';
+            $varStatus .= '</div>';
+            $varStatus .= '</form>';
+        ?>
+                <script type="text/javascript">
+                    
+                    function OpenSwalStatussen()
+                    {
+                        var title = "Nieuwe Status";
+                        var html = '<?php echo $varStatus;?>';
+
+                        Swal.fire({
+                        title: "<b><h2>"+title+"</h2></b>", 
+                        html: html,  
+                        showCancelButton: false, 
+                        showConfirmButton: false,
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        }
+                        });
+                    }
+
+                </script>
             </div>
         </div>
 
