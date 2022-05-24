@@ -119,33 +119,9 @@
                     </tbody>    
                 </table>
 
-        <?php 
-            $varHerberg = '<form action="ingelogd.php" method="post" autocomplete="off">';
-            $varHerberg .= '<div class="form-group">';
-            $varHerberg .= '<label>Naam:</label>';
-            $varHerberg .= '<input type="text" placeholder="Naam" name="naam" class="form-control">';
-            $varHerberg .= '</div><div class="form-group">';
-            $varHerberg .= '<label>Adres:</label>';
-            $varHerberg .= '<input type="text" placeholder="Adres" name="Adres" class="form-control">';
-            $varHerberg .= '</div><div class="form-group">';
-            $varHerberg .= '<label>Email:</label>';
-            $varHerberg .= '<input type="text" placeholder="Email" name="Email" class="form-control">';
-            $varHerberg .= '</div><div class="form-group">';
-            $varHerberg .= '<label>Mobiel Telefoonnummer:</label>';
-            $varHerberg .= '<input type="text" placeholder="Telefoonnumer" name="Telefoon" class="form-control">';
-            $varHerberg .= '</div><div class="form-group">';
-            $varHerberg .= '<label>Coördinaten:</label>';
-            $varHerberg .= '<input type="text" placeholder="Coördinaten N??.????? E??.?????" name="Coördinaten" class="form-control">';
-            $varHerberg .= '</div><div class="form-group">';
-            $varHerberg .= '<br />';
-            $varHerberg .= '<input type="submit" class="btn btn-success" name="BewarenHerberg" value="Bewaren">';
-            $varHerberg .= '  ';
-            $varHerberg .= '<input type="submit" class="btn btn-warning" name="Annuleren" value="Annuleren">';
-            $varHerberg .= '</div>';
-            $varHerberg .= '</form>';
-        ?>
                 <script type="text/javascript">
                     
+    //functie die een swal opent met de form
                     function OpenSwalHerbegen()
                     {
                         var title = "Nieuwe Herberg";
@@ -201,33 +177,8 @@
                     </tbody>    
                 </table>
 
-                <?php 
-                    $varRestaurants = '<form action="ingelogd.php" method="post" autocomplete="off">';
-                    $varRestaurants .= '<div class="form-group">';
-                    $varRestaurants .= '<label>Naam:</label>';
-                    $varRestaurants .= '<input type="text" placeholder="Naam" name="naam" class="form-control">';
-                    $varRestaurants .= '</div><div class="form-group">';
-                    $varRestaurants .= '<label>Adres:</label>';
-                    $varRestaurants .= '<input type="text" placeholder="Adres" name="Adres" class="form-control">';
-                    $varRestaurants .= '</div><div class="form-group">';
-                    $varRestaurants .= '<label>Email:</label>';
-                    $varRestaurants .= '<input type="text" placeholder="Email" name="Email" class="form-control">';
-                    $varRestaurants .= '</div><div class="form-group">';
-                    $varRestaurants .= '<label>Mobiel Telefoonnummer:</label>';
-                    $varRestaurants .= '<input type="text" placeholder="Telefoonnumer" name="Telefoon" class="form-control">';
-                    $varRestaurants .= '</div><div class="form-group">';
-                    $varRestaurants .= '<label>Coördinaten:</label>';
-                    $varRestaurants .= '<input type="text" placeholder="Coördinaten N??.????? E??.?????" name="Coördinaten" class="form-control">';
-                    $varRestaurants .= '</div><div class="form-group">';
-                    $varRestaurants .= '<br />';
-                    $varRestaurants .= '<input type="submit" class="btn btn-success" name="BewarenRestaurant" value="Bewaren">';
-                    $varRestaurants .= '  ';
-                    $varRestaurants .= '<input type="submit" class="btn btn-warning" name="Annuleren" value="Annuleren">';
-                    $varRestaurants .= '</div>';
-                    $varRestaurants .= '</form>';
-                ?>
-
                 <script>
+    //functie die een swal opent met de form
                 function OpenSwalRestaurants()
                     {
                         var title = "Nieuwe Restaurant";
@@ -275,27 +226,9 @@
                     </tbody>    
                 </table>
 
-                <?php 
-            $varTocht = '<form action="ingelogd.php" method="post" autocomplete="off">';
-            $varTocht .= '<div class="form-group">';
-            $varTocht .= '<label>Omschrijvingen:</label>';
-            $varTocht .= '<input type="text" placeholder="Omschrijving" name="Omschrijving" class="form-control">';
-            $varTocht .= '</div><div class="form-group">';
-            $varTocht .= '<label>Route Naam:</label>';
-            $varTocht .= '<input type="text" placeholder="Route Naam" name="RouteNaam" class="form-control">';
-            $varTocht .= '</div><div class="form-group">';
-            $varTocht .= '<label>Aantal Dagen:</label>';
-            $varTocht .= '<input type="number" placeholder="Aantal Dagen" name="AantalDagen" class="form-control">';
-            $varTocht .= '</div><div class="form-group">';
-            $varTocht .= '<br />';
-            $varTocht .= '<input type="submit" class="btn btn-success" name="BewarenTocht" value="Bewaren">';
-            $varTocht .= '  ';
-            $varTocht .= '<input type="submit" class="btn btn-warning" name="Annuleren" value="Annuleren">';
-            $varTocht .= '</div>';
-            $varTocht .= '</form>';
-        ?>
                 <script type="text/javascript">
                     
+    //functie die een swal opent met de form
                     function OpenSwalTochten()
                     {
                         var title = "Nieuwe Tocht";
@@ -347,29 +280,9 @@
                     </tbody>    
                 </table>
 
-                <?php 
-            $varStatus = '<form action="ingelogd.php" method="post" autocomplete="off">';
-            $varStatus .= '<div class="form-group">';
-            $varStatus .= '<label>StatusCode:</label>';
-            $varStatus .= '<input type="number" placeholder="StatusCode" name="StatusCode" class="form-control">';
-            $varStatus .= '</div><div class="form-group">';
-            $varStatus .= '<label>Status Omschrijving:</label>';
-            $varStatus .= '<input type="text" placeholder="Status Omschrijving" name="StatusOmschrijving" class="form-control">';
-            $varStatus .= '</div><div class="form-group">';
-            $varStatus .= '<input type="checkbox" name="Verwijderbaar" value="1">';
-            $varStatus .= '<label>Verwijderbaar</label><br>';
-            $varStatus .= '<input type="checkbox" name="PinToekennen" value="1">';
-            $varStatus .= '<label>Pin Toekennen</label><br>';
-            $varStatus .= '</div><div class="form-group">';
-            $varStatus .= '<br />';
-            $varStatus .= '<input type="submit" class="btn btn-success" name="BewarenStatus" value="Bewaren">';
-            $varStatus .= '  ';
-            $varStatus .= '<input type="submit" class="btn btn-warning" name="Annuleren" value="Annuleren">';
-            $varStatus .= '</div>';
-            $varStatus .= '</form>';
-        ?>
                 <script type="text/javascript">
                     
+    //functie die een swal opent met de form
                     function OpenSwalStatussen()
                     {
                         var title = "Nieuwe Status";
@@ -403,10 +316,11 @@
 
 
     <script>
+              //clickt op de defaultopen tab zodat je automatisch de gasten lijst open hebt
             document.getElementById("defaultOpen").click();
 
         
-
+        //functie zodat je tabs hebt op de pagina
             function tab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
