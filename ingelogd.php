@@ -14,13 +14,23 @@
                 header("location: index.php");
             }
 
-            if(isset($_POST['Bewerken']))
+            if(isset($_POST['Bewaren']))
             {
+		        $Vandaag = date("Y-m-d H:i:s");
+
                 $herbergNaam = $_POST['naam'];
                 $herbergAdres = $_POST['Adres'];
                 $herbergEmail = $_POST['Email'];
                 $herbergTelefoon = $_POST['Telefoon'];
                 $herbergCoördinaten = $_POST['Coördinaten'];
+
+                    $Gewijzigd = $Vandaag;
+
+                    $QueryInsertHerberg = "INSERT INTO herbergen (Naam, Adres, Email, Telefoon, Coordinaten, Gewijzigd) 
+                            VALUES ('$herbergNaam', '$herbergAdres', '$herbergEmail', '$herbergTelefoon', '$herbergCoördinaten', '$Gewijzigd');";
+                    mysqli_query($conn, $QueryInsertHerberg);
+            
+                    header("location: ingelogd.php");
                 
             }
 
@@ -39,6 +49,29 @@
                 $GastenTable .=$Gastenrow['Telefoon']; // Telefoon
                 $GastenTable .="</td>";
                 $GastenTable .="</tr>";   
+            }
+
+            $QueryHerberg = "SELECT Naam, Adres, Email, Telefoon, Coordinaten FROM herbergen";
+            $resultHerberg=$conn->query($QueryHerberg);
+             $HerbergTable = '';
+             while ($Herbergrow = $resultHerberg->fetch_assoc())  {
+                $HerbergTable .="<tr>";
+                $HerbergTable .="<td>";
+                $HerbergTable .=$Herbergrow['Naam'] . " "; // Naam
+                $HerbergTable .="</td>";
+                $HerbergTable .="<td>";
+                $HerbergTable .=$Herbergrow['Adres'] . " "; // Adres
+                $HerbergTable .="</td>";
+                $HerbergTable .="<td>";
+                $HerbergTable .=$Herbergrow['Email'] . " "; // Email
+                $HerbergTable .="</td>";
+                $HerbergTable .="<td>";
+                $HerbergTable .=$Herbergrow['Telefoon']; // Telefoon
+                $HerbergTable .="</td>";
+                $HerbergTable .="<td>";
+                $HerbergTable .=$Herbergrow['Coordinaten']; // Coordinaten
+                $HerbergTable .="</td>";
+                $HerbergTable .="</tr>";   
             }
     ?>
 
@@ -139,7 +172,7 @@
                         </tr>
                     </head>
                     <tbody>
-                        
+                         <?php echo $HerbergTable;?>
                     </tbody>    
                 </table>
 
@@ -147,22 +180,22 @@
         $var = '<form action="ingelogd.php" method="post">';
         $var .= '<div class="form-group">';
         $var .= '<label>Naam:</label>';
-        $var .= '<input id="Naamherberg" type="naam" name="naam" class="form-control">';
+        $var .= '<input type="text" placeholder="Naam" name="naam" class="form-control">';
         $var .= '</div><div class="form-group">';
         $var .= '<label>Adres:</label>';
-        $var .= '<input type="Adres" name="Adres" class="form-control">';
+        $var .= '<input type="text" placeholder="Adres" name="Adres" class="form-control">';
         $var .= '</div><div class="form-group">';
         $var .= '<label>Email:</label>';
-        $var .= '<input type="Email" name="Email" class="form-control">';
+        $var .= '<input type="text" placeholder="Email" name="Email" class="form-control">';
         $var .= '</div><div class="form-group">';
-        $var .= '<label>Telefoon:</label>';
-        $var .= '<input type="Telefoon" name="Telefoon" class="form-control">';
+        $var .= '<label>Mobiel Telefoonnummer:</label>';
+        $var .= '<input type="text" placeholder="Telefoonnumer" name="Telefoon" class="form-control">';
         $var .= '</div><div class="form-group">';
         $var .= '<label>Coördinaten:</label>';
-        $var .= '<input type="Coördinaten" name="Coördinaten" class="form-control">';
+        $var .= '<input type="text" placeholder="Coördinaten N??.????? E??.?????" name="Coördinaten" class="form-control">';
         $var .= '</div><div class="form-group">';
         $var .= '<br />';
-        $var .= '<input type="submit" class="btn btn-success" name="Bewerken" value="Bewerken">';
+        $var .= '<input type="submit" class="btn btn-success" name="Bewaren" value="Bewaren">';
         $var .= '  ';
         $var .= '<input type="submit" class="btn btn-warning" name="Annuleren" value="Annuleren">';
         $var .= '</div>';
