@@ -5,7 +5,6 @@
 		<meta charset=utf-8>
 		<meta name=description content="beschrijving">
 		<meta name=keywords content="trefword, trefword">
-		<link rel="stylesheet" href="styles.css">
         <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
@@ -47,47 +46,53 @@
 	}
 ?>
 
+<html>
+    <head>
+    <link rel="stylesheet" href="css/style.css">
+    <title> De Elstar </title>
+		<meta charset=utf-8>
+		<meta name=description content="beschrijving">
+		<meta name=keywords content="trefword, trefword">
+		<link rel="stylesheet" href="index.css">
+    </head>
+    <body class = "Rbody">
+    <div class ="container">
+	<div class ="center">
+    <legend class = "legend">Registratie</legend>
+    <form action="registratie.php" method="post" autocomplete="off">
+    
+<table>
+    <tbody>
+    <tr><td><label class ="labels">Naam</label></td>
+    <td><input type="text" placeholder="Naam" name="Naam"></td></tr>
+</tbody>
+</table>
 
-<div class="container-fluid containerklant">
-            <form action="registratie.php" method="post" autocomplete="off">
-                <table class="table table-bordered tableclass" >
-                    <thead>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>Naam</td>
-                            <td><input type="text" placeholder="Naam" name="Naam"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td> Email</td>
-                            <td><input type="text" placeholder="Email" value="" name="Email"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>Telefoon</td>
-                            <td><input type="text" placeholder="Telefoon" name="Telefoon"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td>Wachtwoord</td>
-                            <td><input type="password" placeholder="Wachtwoord" name="Wachtwoord"></td>
-                        </tr>
-                       <div class="toevoegen" <tr>
-                            <td colspan="4" align="right"><input type="submit" value="toevoegen" name="toevoegen"></td>
-                        </tr>
-                        </div>
-						<div class="annuleer">
-                        <tr>
-                            <td colspan="4" align="right"><input type="submit" value="Annuleer" name="Annuleer"></td>
-                        </tr>
-                        </div>
-                        </div>
-                    </tbody>
-                </table>
-            </form>
-        </div>
+<table>
+    <tbody>
+    <tr><td><label class ="labels5">Email</label></td>
+    <td><input type="text" placeholder="Email" value="" name="Email"><br></td></tr>
+    </tbody>
+</table>
 
+<table>
+    <tbody>
+    <tr><td><label class ="labels2">Wachtwoord</label></td>
+    <td><input type="password" placeholder="Wachtwoord" name="Wachtwoord"></td></tr>
+</tbody>
+</table>
+
+<table>
+    <tbody>
+    <tr><td><label class ="labels4">Telefoon</label></td>
+    <td><input type="text" placeholder="Telefoon" name="Telefoon"><br></td></tr>
+    </tbody>
+</table>
+
+<input type="submit" value="toevoegen" name="toevoegen">
+<input type="submit" value="Annuleer" name="Annuleer">
+        </form>    
+        </div> 
+        </div>    
 </body>
 </html>
