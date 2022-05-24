@@ -1,4 +1,6 @@
 <?php
+        require_once "dbh.php";
+
     //kijkt naar of je op de bewaren knop hebt gedrukt en voegt het toe aan de database
     if(isset($_POST['BewarenHerberg']))
     {
@@ -56,7 +58,7 @@
             header("location: ingelogd.php");
         
     }
-
+    
     //kijkt naar of je op de bewaren knop hebt gedrukt en voegt het toe aan de database
     if(isset($_POST['BewarenStatus']))
     {
@@ -83,6 +85,7 @@
             // header("location: ingelogd.php");
         
     }
+
     //haalt alles op uit de database en stopt het in een table
     $QueryGasten = "SELECT Naam, Email, Telefoon FROM klanten";
     $resultgasten=$conn->query($QueryGasten);
@@ -102,11 +105,11 @@
     }
 
     //haalt alles op uit de database en stopt het in een table
-    $QueryHerberg = "SELECT Naam, Adres, Email, Telefoon, Coordinaten FROM herbergen";
+    $QueryHerberg = "SELECT ID, Naam, Adres, Email, Telefoon, Coordinaten FROM herbergen";
     $resultHerberg=$conn->query($QueryHerberg);
     $HerbergTable = '';
     while ($Herbergrow = $resultHerberg->fetch_assoc())  {
-        $HerbergTable .="<tr>";
+        $HerbergTable .='<tr>';
         $HerbergTable .="<td>";
         $HerbergTable .=$Herbergrow['Naam'] . " "; // Naam
         $HerbergTable .="</td>";
@@ -123,7 +126,7 @@
         $HerbergTable .=$Herbergrow['Coordinaten']; // Coordinaten
         $HerbergTable .="</td>";
         $HerbergTable .="<td>";
-        $HerbergTable .= '<button type="button" class="btn btn-warning" onclick="">'; // Extra
+        $HerbergTable .= '<button type="button" class="btn btn-warning">'; // Extra
         $HerbergTable .= '<i class="fa-light fa-ellipsis"></i>';// Extra
         $HerbergTable .= '</button>';// Extra
         $HerbergTable .= '  ';
@@ -132,10 +135,11 @@
         $HerbergTable .= '</button>';// Extra
         $HerbergTable .="</td>";
         $HerbergTable .="</tr>";   
+
     }
 
     //haalt alles op uit de database en stopt het in een table
-    $Queryrestaurants = "SELECT Naam, Adres, Email, Telefoon, Coordinaten FROM restaurants";
+    $Queryrestaurants = "SELECT ID, Naam, Adres, Email, Telefoon, Coordinaten FROM restaurants";
     $resultrestaurants=$conn->query($Queryrestaurants);
     $restaurantsTable = '';
     while ($restaurantsrow = $resultrestaurants->fetch_assoc())  {
@@ -168,7 +172,7 @@
     }
 
     //haalt alles op uit de database en stopt het in een table
-    $QueryTochten = "SELECT Omschrijving, Route, AantalDagen FROM tochten";
+    $QueryTochten = "SELECT ID, Omschrijving, Route, AantalDagen FROM tochten";
     $resultTochten=$conn->query($QueryTochten);
     $TochtenTable = '';
     while ($Tochtenrow = $resultTochten->fetch_assoc())  {
@@ -195,7 +199,7 @@
     }
 
     //haalt alles op uit de database en stopt het in een table
-    $QueryStatussen = "SELECT StatusCode, Status, Verwijderbaar, PINtoekennen FROM statussen";
+    $QueryStatussen = "SELECT ID, StatusCode, Status, Verwijderbaar, PINtoekennen FROM statussen";
     $resultStatus=$conn->query($QueryStatussen);
     $StatusTable = '';
     while ($Statusrow = $resultStatus->fetch_assoc())  {
