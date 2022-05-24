@@ -123,7 +123,13 @@
         $HerbergTable .=$Herbergrow['Coordinaten']; // Coordinaten
         $HerbergTable .="</td>";
         $HerbergTable .="<td>";
-        $HerbergTable .= ""; // Extra
+        $HerbergTable .= '<button type="button" class="btn btn-warning" onclick="">'; // Extra
+        $HerbergTable .= '<i class="fa-light fa-ellipsis"></i>';// Extra
+        $HerbergTable .= '</button>';// Extra
+        $HerbergTable .= '  ';
+        $HerbergTable .= '<button type="button" class="btn btn-danger" onclick="">'; // Extra
+        $HerbergTable .= '<i class="fa-thin fa-x"></i>';// Extra
+        $HerbergTable .= '</button>';// Extra
         $HerbergTable .="</td>";
         $HerbergTable .="</tr>";   
     }
@@ -150,7 +156,13 @@
         $restaurantsTable .=$restaurantsrow['Coordinaten']; // Coordinaten
         $restaurantsTable .="</td>";
         $restaurantsTable .="<td>";
-        $restaurantsTable .= ""; // Extra
+        $restaurantsTable .= '<button type="button" class="btn btn-warning" onclick="">'; // Extra
+        $restaurantsTable .= '<i class="fa-light fa-ellipsis"></i>';// Extra
+        $restaurantsTable .= '</button>';// Extra
+        $restaurantsTable .= '  ';
+        $restaurantsTable .= '<button type="button" class="btn btn-danger" onclick="">'; // Extra
+        $restaurantsTable .= '<i class="fa-thin fa-x"></i>';// Extra
+        $restaurantsTable .= '</button>';// Extra
         $restaurantsTable .="</td>";
         $restaurantsTable .="</tr>";   
     }
@@ -171,7 +183,13 @@
         $TochtenTable .=$Tochtenrow['AantalDagen'] . " "; // AantalDagen
         $TochtenTable .="</td>";
         $TochtenTable .="<td>";
-        $TochtenTable .= ""; // Extra
+        $TochtenTable .= '<button type="button" class="btn btn-warning" onclick="">'; // Extra
+        $TochtenTable .= '<i class="fa-light fa-ellipsis"></i>';// Extra
+        $TochtenTable .= '</button>';// Extra
+        $TochtenTable .= '  ';
+        $TochtenTable .= '<button type="button" class="btn btn-danger" onclick="">'; // Extra
+        $TochtenTable .= '<i class="fa-thin fa-x"></i>';// Extra
+        $TochtenTable .= '</button>';// Extra
         $TochtenTable .="</td>";
         $TochtenTable .="</tr>";   
     }
@@ -211,7 +229,13 @@
         $StatusTable .=$StatusPin . " "; // PINtoekennen
         $StatusTable .="</td>";
         $StatusTable .="<td>";
-        $StatusTable .= ""; // Extra
+        $StatusTable .= '<button type="button" class="btn btn-warning" onclick="">'; // Extra
+        $StatusTable .= '<i class="fa-light fa-ellipsis"></i>';// Extra
+        $StatusTable .= '</button>';// Extra
+        $StatusTable .= '  ';
+        $StatusTable .= '<button type="button" class="btn btn-danger" onclick="">'; // Extra
+        $StatusTable .= '<i class="fa-thin fa-x"></i>';// Extra
+        $StatusTable .= '</button>';// Extra
         $StatusTable .="</td>";
         $StatusTable .="</tr>";   
     }
