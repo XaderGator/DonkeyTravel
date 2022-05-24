@@ -61,33 +61,43 @@
     <legend class = "legend">Registratie</legend>
     <form action="registratie.php" method="post" autocomplete="off">
     
-<table>
-    <tbody>
-    <tr><td><label class ="labels">Naam</label></td>
-    <td><input type="text" placeholder="Naam" name="Naam"></td></tr>
-</tbody>
-</table>
 
-<table>
-    <tbody>
-    <tr><td><label class ="labels5">Email</label></td>
-    <td><input type="text" placeholder="Email" value="" name="Email"><br></td></tr>
-    </tbody>
-</table>
 
-<table>
-    <tbody>
-    <tr><td><label class ="labels2">Wachtwoord</label></td>
-    <td><input type="password" placeholder="Wachtwoord" name="Wachtwoord"></td></tr>
-</tbody>
-</table>
+    <div class="row"> 
+        <div class="col-lg-1">
+         <label class ="labels">Naam</label>
+        </div>
+        <div class="col-lg-11">
+            <input type="text" placeholder="Naam" name="Naam">
+        </div>
+    </div>
 
-<table>
-    <tbody>
-    <tr><td><label class ="labels4">Telefoon</label></td>
-    <td><input type="text" placeholder="Telefoon" name="Telefoon"><br></td></tr>
-    </tbody>
-</table>
+    <div class="row"> 
+        <div class="col-lg-1">
+         <label class ="labels5">Email</label>
+        </div>
+        <div class="col-lg-11">
+            <input type="text" placeholder="Email" value="" name="Email">
+        </div>
+    </div>
+
+    <div class="row"> 
+        <div class="col-lg-1">
+          <label class ="labels2">Wachtwoord</label>
+        </div>
+        <div class="col-lg-11">
+           <input type="password" placeholder="Wachtwoord" name="Wachtwoord">
+        </div>
+    </div>
+
+    <div class="row"> 
+        <div class="col-lg-1">
+          <label class ="labels4">Telefoon</label>
+        </div>
+        <div class="col-lg-11">
+          <input type="text" placeholder="Telefoon" name="Telefoon">
+        </div>
+    </div>
 
 <input type="submit" value="toevoegen" name="toevoegen">
 <input type="submit" value="Annuleer" name="Annuleer">
