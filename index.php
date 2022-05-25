@@ -101,6 +101,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <title>Login</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="donkey.jpg" type="image/jpg">
 </head>
 <body>
     <div class="container">
