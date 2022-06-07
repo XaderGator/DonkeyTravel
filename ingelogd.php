@@ -34,6 +34,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="donkey.jpg" type="image/jpg">
+
 
     <title>Ingelogd </title>
 </head>

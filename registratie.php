@@ -54,6 +54,8 @@
 		<meta name=description content="beschrijving">
 		<meta name=keywords content="trefword, trefword">
 		<link rel="stylesheet" href="index.css">
+    <link rel="icon" href="donkey.jpg" type="image/jpg">
+
     </head>
     <body class = "Rbody">
         <div class ="container">
