@@ -58,6 +58,7 @@
     <body class = "Rbody">
     <div class ="container">
 	<div class ="center">
+    <div class ="box">
     <legend class = "legend">Registratie</legend>
     <form action="registratie.php" method="post" autocomplete="off">
     
@@ -97,10 +98,12 @@
         <div class="col-lg-11">
           <input type="text" placeholder="Telefoon" name="Telefoon">
         </div>
+        </div>
+<div class="Bcontainer">
+<div class="toevoegenR"><input type="submit" value="toevoegen" name="toevoegen"></div>
+<div class="annuleerR"><input type="submit" value="Annuleer" name="Annuleer"></div>
+</div>
     </div>
-
-<input type="submit" value="toevoegen" name="toevoegen">
-<input type="submit" value="Annuleer" name="Annuleer">
         </form>    
         </div> 
         </div>    
