@@ -2,10 +2,7 @@
 {
     width: 25%;
 }
-body{
 
-    
-}
 .center 
 {
   margin: auto;
@@ -14,11 +11,9 @@ body{
   }
 .box 
 {
-  width: 150px;
+  width: 25%;
   border: 7px solid rgb(37, 187, 37);
-  padding: 50px;
   margin: auto;
-  padding-left: 25%;
   background-color: gainsboro;
 }
   .legend
@@ -27,6 +22,7 @@ body{
     width: 100px;
     font-size:25px;
     padding-right: 25%;
+    
   }
   .labels
   {

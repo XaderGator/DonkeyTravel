@@ -56,56 +56,56 @@
 		<link rel="stylesheet" href="index.css">
     </head>
     <body class = "Rbody">
-    <div class ="container">
-	<div class ="center">
-    <div class ="box">
-    <legend class = "legend">Registratie</legend>
-    <form action="registratie.php" method="post" autocomplete="off">
-    
+        <div class ="container">
+            <div class ="center">
+                <div class ="box">
+                    <legend class="legend">Registratie</legend>
+                    <form action="registratie.php" method="post" autocomplete="off">
 
+                        <div class="row"> 
+                            <div class="col-lg-1">
+                                <label class ="labels">Naam</label>
+                            </div>
+                            <div class="col-lg-11">
+                                <input type="text" placeholder="Naam" name="Naam">
+                            </div>
+                        </div>
 
-    <div class="row"> 
-        <div class="col-lg-1">
-         <label class ="labels">Naam</label>
-        </div>
-        <div class="col-lg-11">
-            <input type="text" placeholder="Naam" name="Naam">
-        </div>
-    </div>
+                        <div class="row"> 
+                            <div class="col-lg-1">
+                                <label class ="labels5">Email</label>
+                            </div>
+                            <div class="col-lg-11">
+                                <input type="text" placeholder="Email" value="" name="Email">
+                            </div>
+                        </div>
 
-    <div class="row"> 
-        <div class="col-lg-1">
-         <label class ="labels5">Email</label>
-        </div>
-        <div class="col-lg-11">
-            <input type="text" placeholder="Email" value="" name="Email">
-        </div>
-    </div>
+                        <div class="row"> 
+                            <div class="col-lg-1">
+                                 <label class ="labels2">Wachtwoord</label>
+                            </div>
+                            <div class="col-lg-11">
+                                 <input type="password" placeholder="Wachtwoord" name="Wachtwoord">
+                            </div>
+                        </div>
 
-    <div class="row"> 
-        <div class="col-lg-1">
-          <label class ="labels2">Wachtwoord</label>
-        </div>
-        <div class="col-lg-11">
-           <input type="password" placeholder="Wachtwoord" name="Wachtwoord">
-        </div>
-    </div>
+                        <div class="row"> 
+                            <div class="col-lg-1">
+                                <label class ="labels4">Telefoon</label>
+                            </div>
+                            <div class="col-lg-11">
+                                <input type="text" placeholder="Telefoon" name="Telefoon">
+                            </div>
+                        </div>
 
-    <div class="row"> 
-        <div class="col-lg-1">
-          <label class ="labels4">Telefoon</label>
-        </div>
-        <div class="col-lg-11">
-          <input type="text" placeholder="Telefoon" name="Telefoon">
-        </div>
-        </div>
-<div class="Bcontainer">
-<div class="toevoegenR"><input type="submit" value="toevoegen" name="toevoegen"></div>
-<div class="annuleerR"><input type="submit" value="Annuleer" name="Annuleer"></div>
-</div>
-    </div>
-        </form>    
-        </div> 
+                        <div class="Bcontainer">
+                            <div class="toevoegenR"><input type="submit" value="toevoegen" name="toevoegen"></div>
+                            <div class="annuleerR"><input type="submit" value="Annuleer" name="Annuleer"></div>
+                        </div>
+
+                    </form>    
+                </div>
+            </div> 
         </div>    
-</body>
+    </body>
 </html>
