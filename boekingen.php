@@ -42,7 +42,7 @@
 <body>
 
 <div class="dropdown">
-  <button onclick="dropdownFunction()" class="dropbtn">Dropdown</button>
+  <button onclick="dropdownFunction()" class="dropbtn">Menu</button>
   <div id="myDropdown" class="dropdown-content">
     <a href="ingelogd.php">Home</a>
     <a href="#">Link 2</a>
