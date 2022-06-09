@@ -1,7 +1,7 @@
 <?php 
         session_start();
         require_once "dbh.php";
-        require_once "ingelogdphp.php";
+        require_once "boekingenphp.php";
 
 
             if($_SESSION["loggedin"] == false)
@@ -37,16 +37,16 @@
     <link rel="icon" href="donkey.jpg" type="image/jpg">
 
 
-    <title>Ingelogd </title>
+    <title>Boekingen </title>
 </head>
 <body>
 
 <div class="dropdown">
   <button onclick="dropdownFunction()" class="dropbtn">Menu</button>
   <div id="myDropdown" class="dropdown-content">
-    <a href="ingelogd.php">Home</a>
+    <a href="boekingen.php">Home</a>
     <a href="#">Link 2</a>
-    <form action="ingelogd.php" method="post">
+    <form action="boekingen.php" method="post">
         <input type="submit" value="Uitloggen" name="Annuleer">
     </form>
   </div>
