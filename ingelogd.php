@@ -229,6 +229,10 @@
                     </tbody>    
                 </table>
 
+                <p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m40!1m12!1m3!1d13194.59516208683!2d5.872636620671856!3d51.729479962820754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m25!3e2!4m5!1s0x47c70e3e6f6fd519%3A0x477a12c0caa79ebe!2sDe%20Leijgraaf%2C%20Jan%20van%20Cuijkstraat%2052%2C%205431%20GC%20Cuijk!3m2!1d51.722085!2d5.880636399999999!4m5!1s0x47c70e47b311c577%3A0x33e441a1849987af!2sAlbert%20Heijn!3m2!1d51.7294513!2d5.8738578!4m5!1s0x47c70e176c852bc3%3A0xacc8c457db9714c5!2sLidl!3m2!1d51.7370199!2d5.8735557!4m5!1s0x47c70e41073d9f7d%3A0xb2f7e68c7a3644f5!2sBeheersstichting%20Ontmoetingscentrum%E2%80%A6!3m2!1d51.7320602!2d5.881604599999999!5e0!3m2!1snl!2snl!4v1654597359505!5m2!1snl!2snl" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </p>    
+
                 <script type="text/javascript">
                     
     //functie die een swal opent met de form
