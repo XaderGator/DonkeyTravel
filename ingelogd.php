@@ -47,17 +47,14 @@
     <a href="boekingen.php">boekingen</a>
     <a href="#">Link 2</a>
     <form action="ingelogd.php" method="post">
-                 <input type="submit" value="Uitloggen" name="Annuleer">
-            </form>
+        <input type="submit" value="Uitloggen" name="Annuleer">
+    </form>
   </div>
 </div>
 
 
 
     <script>
-
-            
-
                 function dropdownFunction() {
                   document.getElementById("myDropdown").classList.toggle("show");
                 }

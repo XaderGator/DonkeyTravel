@@ -46,9 +46,9 @@
   <div id="myDropdown" class="dropdown-content">
     <a href="ingelogd.php">Home</a>
     <a href="#">Link 2</a>
-        <form action="ingelogd.php" method="post">
-            <input type="submit" value="Uitloggen" name="Annuleer">
-        </form>
+    <form action="ingelogd.php" method="post">
+        <input type="submit" value="Uitloggen" name="Annuleer">
+    </form>
   </div>
 </div>
 
