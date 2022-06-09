@@ -234,6 +234,10 @@
                     </tbody>    
                 </table>
 
+                <p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15086.841832468324!2d29.775242616669296!3d-19.032476209016544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1snl!2snl!4v1654767817209!5m2!1snl!2snl" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </p>
+
                 <script type="text/javascript">
                     
     //functie die een swal opent met de form
