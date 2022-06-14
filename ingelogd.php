@@ -44,16 +44,48 @@
   <button onclick="dropdownFunction()" class="dropbtn">Menu</button>
   <div id="myDropdown" class="dropdown-content">
     <a href="boekingen.php">boekingen</a>
-    <a href="#">Link 2</a>
+    <button type="button" class="btn btn-success" onclick="OpenSwalPincode()">
+            Pincode
+    </button>
     <form action="ingelogd.php" method="post">
         <input type="submit" value="Uitloggen" name="Annuleer">
     </form>
   </div>
 </div>
 
+    <?php 
+
+        //Maakt een form voor de pincode
+        $varPincode = '<form action="ingelogd.php" method="post" autocomplete="off">';
+        $varPincode .= '<div class="form-group">';
+        $varPincode .= '<label>Pincode:</label>';
+        $varPincode .= '<input type="text" placeholder="Pincode" name="Pincode" class="form-control">';
+        $varPincode .= '</div>';
+        $varPincode .= '</form>';
+
+    ?>
 
 
     <script>
+        function OpenSwalPincode()
+        {
+            var title = "Pincode";
+            var html = '<?php echo $varPincode;?>';
+
+            Swal.fire({
+            title: "<b><h2>"+title+"</h2></b>", 
+            html: html,  
+            showCancelButton: false, 
+            showConfirmButton: false,
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+            });
+        }
+
             function dropdownFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
             }

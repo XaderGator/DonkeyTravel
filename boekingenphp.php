@@ -18,7 +18,7 @@
                     VALUES ('$herbergNaam', '$herbergAdres', '$herbergEmail', '$herbergTelefoon', '$herbergCoördinaten', '$Gewijzigd');";
             mysqli_query($conn, $QueryInsertHerberg);
 
-            header("location: ingelogd.php");
+            header("location: boekingen.php");
         
     }
     //kijkt naar of je op de bewaren knop hebt gedrukt en voegt het toe aan de database
@@ -39,7 +39,7 @@
                     VALUES ('$restaurantsNaam', '$restaurantsAdres', '$restaurantsEmail', '$restaurantsTelefoon', '$restaurantsCoördinaten', '$Gewijzigd');";
             mysqli_query($conn, $QueryInsertrestaurants);
 
-            header("location: ingelogd.php");
+            header("location: boekingen.php");
         
     }
 
@@ -55,7 +55,7 @@
                     VALUES ('$TochtOmschrijving', '$TochtRouteNaam', '$TochtAantalDagen');";
             mysqli_query($conn, $QueryInsertTocht);
 
-            header("location: ingelogd.php");
+            header("location: boekingen.php");
         
     }
     
@@ -82,7 +82,7 @@
                     VALUES ('$StatusCode', '$StatusOmschrijving', '$StatusVerwijderbaar', '$StatusPinToekennen');";
             mysqli_query($conn, $QueryInsertStatus);
 
-            // header("location: ingelogd.php");
+            // header("location: boekingen.php");
         
     }
 
@@ -245,7 +245,7 @@
     }
 
     //Maakt een form voor het toevoegen van de benodigde gegevens aan de database
-    $varHerberg = '<form action="ingelogd.php" method="post" autocomplete="off">';
+    $varHerberg = '<form action="boekingen.php" method="post" autocomplete="off">';
     $varHerberg .= '<div class="form-group">';
     $varHerberg .= '<label>Naam:</label>';
     $varHerberg .= '<input type="text" placeholder="Naam" name="naam" class="form-control">';
@@ -270,7 +270,7 @@
     $varHerberg .= '</form>';
 
     //Maakt een form voor het toevoegen van de benodigde gegevens aan de database
-    $varRestaurants = '<form action="ingelogd.php" method="post" autocomplete="off">';
+    $varRestaurants = '<form action="boekingen.php" method="post" autocomplete="off">';
     $varRestaurants .= '<div class="form-group">';
     $varRestaurants .= '<label>Naam:</label>';
     $varRestaurants .= '<input type="text" placeholder="Naam" name="naam" class="form-control">';
@@ -295,7 +295,7 @@
     $varRestaurants .= '</form>';
 
     //Maakt een form voor het toevoegen van de benodigde gegevens aan de database
-    $varTocht = '<form action="ingelogd.php" method="post" autocomplete="off">';
+    $varTocht = '<form action="boekingen.php" method="post" autocomplete="off">';
     $varTocht .= '<div class="form-group">';
     $varTocht .= '<label>Omschrijvingen:</label>';
     $varTocht .= '<input type="text" placeholder="Omschrijving" name="Omschrijving" class="form-control">';
@@ -314,7 +314,7 @@
     $varTocht .= '</form>';
 
     //Maakt een form voor het toevoegen van de benodigde gegevens aan de database
-    $varStatus = '<form action="ingelogd.php" method="post" autocomplete="off">';
+    $varStatus = '<form action="boekingen.php" method="post" autocomplete="off">';
     $varStatus .= '<div class="form-group">';
     $varStatus .= '<label>StatusCode:</label>';
     $varStatus .= '<input type="number" placeholder="StatusCode" name="StatusCode" class="form-control">';
