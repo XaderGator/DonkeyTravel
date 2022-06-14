@@ -8,13 +8,56 @@
                 header("location: index.php");
             }
 
-        	if(isset($_POST['Annuleer']))
+        	if(isset($_POST['AnnuleerInlog']))
             {
                 $_SESSION["loggedin"] = false;
                 header("location: index.php");
             }
 
-           
+            if(isset($_POST['TrekInPincode']))
+            {//Delete Pincode
+
+                $KlantenID = $_SESSION["KlantenID"];
+
+                $QueryUpdatePincodeBoekingen = "UPDATE boekingen SET PINCode = '0' WHERE FKklantenID = '$KlantenID'";
+                mysqli_query($conn, $QueryUpdatePincodeBoekingen);
+
+                header("location: ingelogd.php");
+            }
+
+            if(isset($_POST['WijzigenPincode']))
+            {//Voeg pincode toe
+                $Pincode = $_POST['Pincode'];
+                $KlantenID = $_SESSION["KlantenID"];
+
+                $QueryInsertPincodeBoekingen = "UPDATE boekingen SET PINCode = '$Pincode' WHERE FKklantenID = '$KlantenID'";
+                mysqli_query($conn, $QueryInsertPincodeBoekingen);
+
+                header("location: ingelogd.php");
+            }
+
+            if(isset($_POST['AnnulerenSwal']))
+            {//Terug gaan naar pagina
+                header("location: ingelogd.php");
+            }
+
+            if(isset($_POST['MakenBoekingen']))
+            {//Voeg pincode toe
+                $Vandaag = date("Y-m-d H:i:s");
+
+                $FKtochtenID = "1";
+                $FKklantenID = $_SESSION["KlantenID"];
+                $FKstatussenID = "1";
+                $Pincode = "0";
+        
+                $Gewijzigd = $Vandaag;
+
+                $QueryInsertPincodeBoekingen = "INSERT INTO boekingen (StartDatum, PINCode, FKtochtenID, FKklantenID, `FKstatussenID`) 
+                        VALUES ('$Gewijzigd', '$Pincode', '$FKtochtenID', '$FKklantenID', '$FKstatussenID');";
+                mysqli_query($conn, $QueryInsertPincodeBoekingen);
+
+                header("location: ingelogd.php");
+            }
     ?>
 
 <!DOCTYPE html>
@@ -44,11 +87,34 @@
   <button onclick="dropdownFunction()" class="dropbtn">Menu</button>
   <div id="myDropdown" class="dropdown-content">
     <a href="boekingen.php">boekingen</a>
-    <button type="button" class="btn btn-success" onclick="OpenSwalPincode()">
-            Pincode
-    </button>
+    <a onclick="OpenSwalBoekingen()">Boeking Aanvragen</a>
+    <?php
+         $klantenid = $_SESSION['KlantenID'];
+
+        $QueryBoekingen = "SELECT * FROM boekingen WHERE FKklantenID = '$klantenid'";
+        $resultBoekingen=$conn->query($QueryBoekingen);
+        if($stmt = mysqli_prepare($conn, $QueryBoekingen)){
+            $test = $resultBoekingen->fetch_assoc();
+            if($test != NULL)
+            {
+                $startdatum = $test['StartDatum'];
+            }else
+            {
+                $startdatum = 'BoomSHAKALA'; 
+            }
+        }
+            $dagvandaag = date("Y-m-d");
+
+
+            if($startdatum <= $dagvandaag)
+            {
+                echo '<a onclick="OpenSwalPincode()">Pincode Navigatie</a>';
+            }
+
+    ?>
+
     <form action="ingelogd.php" method="post">
-        <input type="submit" value="Uitloggen" name="Annuleer">
+        <input type="submit" value="Uitloggen" name="AnnuleerInlog" class="form-control">
     </form>
   </div>
 </div>
@@ -57,11 +123,25 @@
 
         //Maakt een form voor de pincode
         $varPincode = '<form action="ingelogd.php" method="post" autocomplete="off">';
-        $varPincode .= '<div class="form-group">';
-        $varPincode .= '<label>Pincode:</label>';
-        $varPincode .= '<input type="text" placeholder="Pincode" name="Pincode" class="form-control">';
+        $varPincode .= '<div>';
+        $varPincode .= '<label>Pincode</label>';
+        $varPincode .= '<input type="number" placeholder="Pincode" name="Pincode">';
         $varPincode .= '</div>';
+        $varPincode .= '<br />';
+        $varPincode .= '<input type="submit" class="btn btn-danger" name="TrekInPincode" value="Trek In">';
+        $varPincode .= '  ';
+        $varPincode .= '<input type="submit" class="btn btn-success" name="WijzigenPincode" value="Wijzigen">';
+        $varPincode .= '  ';
+        $varPincode .= '<input type="submit" class="btn btn-warning" name="AnnulerenSwal" value="Annuleren">';
         $varPincode .= '</form>';
+
+        //Maakt een form voor de Boekingen
+        $varBoekingen = '<form action="ingelogd.php" method="post" autocomplete="off">';
+        $varBoekingen .= '<br />';
+        $varBoekingen .= '<input type="submit" class="btn btn-success" name="MakenBoekingen" value="Toevoegen">';
+        $varBoekingen .= '  ';
+        $varBoekingen .= '<input type="submit" class="btn btn-warning" name="AnnulerenSwal" value="Annuleren">';
+        $varBoekingen .= '</form>';
 
     ?>
 
@@ -69,8 +149,27 @@
     <script>
         function OpenSwalPincode()
         {
-            var title = "Pincode";
+            var title = "Pincode Boekingen";
             var html = '<?php echo $varPincode;?>';
+
+            Swal.fire({
+            title: "<b><h2>"+title+"</h2></b>", 
+            html: html,  
+            showCancelButton: false, 
+            showConfirmButton: false,
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+            });
+        }
+
+        function OpenSwalBoekingen()
+        {
+            var title = "Pincode Boekingen";
+            var html = '<?php echo $varBoekingen;?>';
 
             Swal.fire({
             title: "<b><h2>"+title+"</h2></b>", 
