@@ -45,10 +45,10 @@
             {//Voeg pincode toe
                 $Vandaag = date("Y-m-d H:i:s");
 
-                $FKtochtenID = "1";
+                $FKtochtenID = 1;
                 $FKklantenID = $_SESSION["KlantenID"];
-                $FKstatussenID = "1";
-                $Pincode = "0";
+                $FKstatussenID = 1;
+                $Pincode = null;
         
                 $Gewijzigd = $Vandaag;
 
