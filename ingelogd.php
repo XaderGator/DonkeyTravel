@@ -23,7 +23,8 @@
                 mysqli_query($conn, $QueryUpdatePincodeBoekingen);
 
                 header("location: ingelogd.php");
-            }
+            } 
+            
 
             if(isset($_POST['WijzigenPincode']))
             {//Voeg pincode toe
