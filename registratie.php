@@ -64,6 +64,7 @@
                     <legend class="legend">Registratie</legend>
                     <form action="registratie.php" method="post" autocomplete="off">
 
+                    
                         <div class="row"> 
                             <div class="col-lg-1">
                                 <label class ="labels">Naam</label>

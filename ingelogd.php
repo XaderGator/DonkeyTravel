@@ -24,7 +24,7 @@
 
                 header("location: ingelogd.php");
             } 
-            
+
 
             if(isset($_POST['WijzigenPincode']))
             {//Voeg pincode toe
@@ -60,7 +60,8 @@
                 header("location: ingelogd.php");
             }
     ?>
-
+    
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>

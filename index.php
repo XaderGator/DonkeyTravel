@@ -114,6 +114,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </div>
                     </div>
                     <div class="card-body">
+                        
                         <?php 
                         if(!empty($login_err)){
                             echo '<div class="alert alert-danger">' . $login_err . '</div>';
