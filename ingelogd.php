@@ -49,7 +49,7 @@
                 $FKtochtenID = 1;
                 $FKklantenID = $_SESSION["KlantenID"];
                 $FKstatussenID = 1;
-                $Pincode = null;
+                $Pincode = 0;
         
                 $Gewijzigd = $Vandaag;
 
@@ -61,7 +61,7 @@
             }
     ?>
     
-    
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
