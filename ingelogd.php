@@ -46,18 +46,48 @@
             {//Voeg pincode toe
                 $Vandaag = date("Y-m-d H:i:s");
 
-                $FKtochtenID = 1;
+                $FKtochtenID = $_POST['Tochten'];
                 $FKklantenID = $_SESSION["KlantenID"];
-                $FKstatussenID = 1;
+                $FKstatussenID = $_POST['Statussen'];
                 $Pincode = 0;
         
                 $Gewijzigd = $Vandaag;
 
-                $QueryInsertPincodeBoekingen = "INSERT INTO boekingen (StartDatum, PINCode, FKtochtenID, FKklantenID, `FKstatussenID`) 
+                $QueryInsertPincodeBoekingen = "INSERT INTO boekingen (`StartDatum`, `PINCode`, `FKtochtenID`, `FKklantenID`, `FKstatussenID`) 
                         VALUES ('$Gewijzigd', '$Pincode', '$FKtochtenID', '$FKklantenID', '$FKstatussenID');";
                 mysqli_query($conn, $QueryInsertPincodeBoekingen);
 
                 header("location: ingelogd.php");
+            }
+
+            $QueryTochten = "SELECT * FROM tochten";
+            $resultTochten=$conn->query($QueryTochten);
+            $varOptionSelectTochten = '';
+            if($stmt = mysqli_prepare($conn, $QueryTochten)){
+               while($rowTochten = $resultTochten->fetch_assoc())
+               {
+                if($rowTochten != NULL)
+                {
+
+                 $varOptionSelectTochten .=   '<option value="'.$rowTochten['ID'].'">'.$rowTochten['Omschrijving'].'-'.$rowTochten['Route'].'-'.$rowTochten['AantalDagen'].'</option>';
+
+                }
+               }
+            }
+
+            $QueryStatussen = "SELECT * FROM statussen";
+            $resultStatussen=$conn->query($QueryStatussen);
+            $varOptionSelectStatussen = '';
+            if($stmt = mysqli_prepare($conn, $QueryStatussen)){
+               while($rowStatussen = $resultStatussen->fetch_assoc())
+               {
+                if($rowStatussen != NULL)
+                {
+
+                 $varOptionSelectStatussen .= '<option value="'.$rowStatussen['ID'].'">'.$rowStatussen['StatusCode'].'-'.$rowStatussen['Status'].'-'.$rowStatussen['Verwijderbaar'].'-'.$rowStatussen['PINtoekennen'].'</option>';
+
+                }
+               }
             }
     ?>
     
@@ -96,10 +126,10 @@
         $QueryBoekingen = "SELECT * FROM boekingen WHERE FKklantenID = '$klantenid'";
         $resultBoekingen=$conn->query($QueryBoekingen);
         if($stmt = mysqli_prepare($conn, $QueryBoekingen)){
-            $test = $resultBoekingen->fetch_assoc();
-            if($test != NULL)
+            $rowBoekingen = $resultBoekingen->fetch_assoc();
+            if($rowBoekingen != NULL)
             {
-                $startdatum = $test['StartDatum'];
+                $startdatum = $rowBoekingen['StartDatum'];
             }else
             {
                 $startdatum = 'BoomSHAKALA'; 
@@ -139,6 +169,15 @@
 
         //Maakt een form voor de Boekingen
         $varBoekingen = '<form action="ingelogd.php" method="post" autocomplete="off">';
+        $varBoekingen .= '<select name="Tochten" id="Tochten">';
+        $varBoekingen .= $varOptionSelectTochten;
+        $varBoekingen .='</select>';
+        $varBoekingen .= '<br />';
+        $varBoekingen .= '<br />';
+        $varBoekingen .= '<select name="Statussen" id="Statussen">';
+        $varBoekingen .= $varOptionSelectStatussen;
+        $varBoekingen .='</select>';
+        $varBoekingen .= '<br />';
         $varBoekingen .= '<br />';
         $varBoekingen .= '<input type="submit" class="btn btn-success" name="MakenBoekingen" value="Toevoegen">';
         $varBoekingen .= '  ';
