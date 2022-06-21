@@ -104,6 +104,14 @@
 {
   display:inline-block;
 }
+.centertab
+{
+  margin: auto;
+  width: 200px;
+  height: auto;
+  font-size: auto;
+  float: left 40px;
+}
 .Bcontainer
 {
   display:inline-block;
@@ -154,6 +162,3 @@
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
-
-
-

@@ -198,6 +198,7 @@
                         html: html,  
                         showCancelButton: false, 
                         showConfirmButton: false,
+                        
                         showClass: {
                             popup: 'animate__animated animate__fadeInDown'
                         },
@@ -205,6 +206,7 @@
                             popup: 'animate__animated animate__fadeOutUp'
                         }
                         });
+                        </div>
                     }
                 </script>
             </div>
@@ -268,7 +270,7 @@
             <h1> Statussen</h1>
                 <table class="table table-striped table-hover">
                     <head>
-                        <tr class="bg-success">
+                  <tr class="bg-success">
                             <td>
                                 Code
                             </td>
@@ -293,7 +295,8 @@
                     </tbody>    
                 </table>
 
-                <script type="text/javascript">
+                <div class="centertab"> 
+                    <script type="text/javascript">
                     
     //functie die een swal opent met de form
                     function OpenSwalStatussen()
@@ -316,6 +319,7 @@
                     }
 
                 </script>
+                </div>
             </div>
         </div>
 
