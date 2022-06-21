@@ -246,22 +246,22 @@
 
     //Maakt een form voor het toevoegen van de benodigde gegevens aan de database
     $varHerberg = '<form action="boekingen.php" method="post" autocomplete="off">';
-    $varHerberg .= '<div class="form-group">';
+    $varHerberg .= '<div class="centertab">';
     $varHerberg .= '<label>Naam:</label>';
-    $varHerberg .= '<input type="text" placeholder="Naam" name="naam" class="form-control">';
-    $varHerberg .= '</div><div class="form-group">';
+    $varHerberg .= '<input type="text" placeholder="Naam" name="naam" class="centertab">';
+    $varHerberg .= '</div><div class="centertab">';
     $varHerberg .= '<label>Adres:</label>';
-    $varHerberg .= '<input type="text" placeholder="Adres" name="Adres" class="form-control">';
-    $varHerberg .= '</div><div class="form-group">';
+    $varHerberg .= '<input type="text" placeholder="Adres" name="Adres" class="centertab">';
+    $varHerberg .= '</div><div class="centertab">';
     $varHerberg .= '<label>Email:</label>';
-    $varHerberg .= '<input type="text" placeholder="Email" name="Email" class="form-control">';
-    $varHerberg .= '</div><div class="form-group">';
-    $varHerberg .= '<label>Mobiel Telefoonnummer:</label>';
-    $varHerberg .= '<input type="text" placeholder="Telefoonnumer" name="Telefoon" class="form-control">';
-    $varHerberg .= '</div><div class="form-group">';
+    $varHerberg .= '<input type="text" placeholder="Email" name="Email" class="centertab">';
+    $varHerberg .= '</div><div class="centertab">';
+    $varHerberg .= '<label>Telefoonnummer:</label>';
+    $varHerberg .= '<input type="text" placeholder="Telefoonnumer" name="Telefoon" class="centertab">';
+    $varHerberg .= '</div><div class="centertab">';
     $varHerberg .= '<label>Coördinaten:</label>';
-    $varHerberg .= '<input type="text" placeholder="Coördinaten N??.????? E??.?????" name="Coördinaten" class="form-control">';
-    $varHerberg .= '</div><div class="form-group">';
+    $varHerberg .= '<input type="text" placeholder="Coördinaten N??.????? E??.?????" name="Coördinaten" class="centertab">';
+    $varHerberg .= '</div><div class="centertab">';
     $varHerberg .= '<br />';
     $varHerberg .= '<input type="submit" class="btn btn-success" name="BewarenHerberg" value="Bewaren">';
     $varHerberg .= '  ';
@@ -271,22 +271,22 @@
 
     //Maakt een form voor het toevoegen van de benodigde gegevens aan de database
     $varRestaurants = '<form action="boekingen.php" method="post" autocomplete="off">';
-    $varRestaurants .= '<div class="form-group">';
+    $varRestaurants .= '<div class="centertab">';
     $varRestaurants .= '<label>Naam:</label>';
-    $varRestaurants .= '<input type="text" placeholder="Naam" name="naam" class="form-control">';
-    $varRestaurants .= '</div><div class="form-group">';
+    $varRestaurants .= '<input type="text" placeholder="Naam" name="naam" class="centertab">';
+    $varRestaurants .= '</div><div class="centertab">';
     $varRestaurants .= '<label>Adres:</label>';
-    $varRestaurants .= '<input type="text" placeholder="Adres" name="Adres" class="form-control">';
-    $varRestaurants .= '</div><div class="form-group">';
+    $varRestaurants .= '<input type="text" placeholder="Adres" name="Adres" class="centertab">';
+    $varRestaurants .= '</div><div class="centertab">';
     $varRestaurants .= '<label>Email:</label>';
-    $varRestaurants .= '<input type="text" placeholder="Email" name="Email" class="form-control">';
-    $varRestaurants .= '</div><div class="form-group">';
-    $varRestaurants .= '<label>Mobiel Telefoonnummer:</label>';
-    $varRestaurants .= '<input type="text" placeholder="Telefoonnumer" name="Telefoon" class="form-control">';
-    $varRestaurants .= '</div><div class="form-group">';
+    $varRestaurants .= '<input type="text" placeholder="Email" name="Email" class="centertab">';
+    $varRestaurants .= '</div><div class="centertab">';
+    $varRestaurants .= '<label>Telefoonnummer:</label>';
+    $varRestaurants .= '<input type="text" placeholder="Telefoonnumer" name="Telefoon" class="centertab">';
+    $varRestaurants .= '</div><div class="centertab">';
     $varRestaurants .= '<label>Coördinaten:</label>';
-    $varRestaurants .= '<input type="text" placeholder="Coördinaten N??.????? E??.?????" name="Coördinaten" class="form-control">';
-    $varRestaurants .= '</div><div class="form-group">';
+    $varRestaurants .= '<input type="text" placeholder="Coördinaten N??.????? E??.?????" name="Coördinaten" class="centertab">';
+    $varRestaurants .= '</div><div class="centertab">';
     $varRestaurants .= '<br />';
     $varRestaurants .= '<input type="submit" class="btn btn-success" name="BewarenRestaurant" value="Bewaren">';
     $varRestaurants .= '  ';
@@ -296,16 +296,16 @@
 
     //Maakt een form voor het toevoegen van de benodigde gegevens aan de database
     $varTocht = '<form action="boekingen.php" method="post" autocomplete="off">';
-    $varTocht .= '<div class="form-group">';
+    $varTocht .= '<div class="centertab">';
     $varTocht .= '<label>Omschrijvingen:</label>';
-    $varTocht .= '<input type="text" placeholder="Omschrijving" name="Omschrijving" class="form-control">';
-    $varTocht .= '</div><div class="form-group">';
+    $varTocht .= '<input type="text" placeholder="Omschrijving" name="Omschrijving" class="centertab">';
+    $varTocht .= '</div><div class="centertab">';
     $varTocht .= '<label>Route Naam:</label>';
-    $varTocht .= '<input type="text" placeholder="Route Naam" name="RouteNaam" class="form-control">';
-    $varTocht .= '</div><div class="form-group">';
+    $varTocht .= '<input type="text" placeholder="Route Naam" name="RouteNaam" class="centertab">';
+    $varTocht .= '</div><div class="centertab">';
     $varTocht .= '<label>Aantal Dagen:</label>';
-    $varTocht .= '<input type="number" placeholder="Aantal Dagen" name="AantalDagen" class="form-control">';
-    $varTocht .= '</div><div class="form-group">';
+    $varTocht .= '<input type="number" placeholder="Aantal Dagen" name="AantalDagen" class="centertab">';
+    $varTocht .= '</div><div class="centertab">';
     $varTocht .= '<br />';
     $varTocht .= '<input type="submit" class="btn btn-success" name="BewarenTocht" value="Bewaren">';
     $varTocht .= '  ';
@@ -315,18 +315,18 @@
 
     //Maakt een form voor het toevoegen van de benodigde gegevens aan de database
     $varStatus = '<form action="boekingen.php" method="post" autocomplete="off">';
-    $varStatus .= '<div class="form-group">';
+    $varStatus .= '<div class="centertab">';
     $varStatus .= '<label>StatusCode:</label>';
-    $varStatus .= '<input type="number" placeholder="StatusCode" name="StatusCode" class="form-control">';
-    $varStatus .= '</div><div class="form-group">';
+    $varStatus .= '<input type="number" placeholder="StatusCode" name="StatusCode" class="centertab">';
+    $varStatus .= '</div><div class="centertab">';
     $varStatus .= '<label>Status Omschrijving:</label>';
-    $varStatus .= '<input type="text" placeholder="Status Omschrijving" name="StatusOmschrijving" class="form-control">';
-    $varStatus .= '</div><div class="form-group">';
+    $varStatus .= '<input type="text" placeholder="Status Omschrijving" name="StatusOmschrijving" class="centertab">';
+    $varStatus .= '</div><div class="centertab">';
     $varStatus .= '<input type="checkbox" name="Verwijderbaar" value="1">';
     $varStatus .= '<label>Verwijderbaar</label><br>';
     $varStatus .= '<input type="checkbox" name="PinToekennen" value="1">';
     $varStatus .= '<label>Pin Toekennen</label><br>';
-    $varStatus .= '</div><div class="form-group">';
+    $varStatus .= '</div><div class="centertab">';
     $varStatus .= '<br />';
     $varStatus .= '<input type="submit" class="btn btn-success" name="BewarenStatus" value="Bewaren">';
     $varStatus .= '  ';
