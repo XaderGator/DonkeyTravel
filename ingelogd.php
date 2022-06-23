@@ -60,6 +60,35 @@
                 header("location: ingelogd.php");
             }
 
+            
+
+            if(isset($_POST['DeleteAccount']))
+            {//Delete Klant account
+
+                $klantenID = $_SESSION["KlantenID"];
+        
+                $QueryDeleteKlantAcc = "DELETE FROM `klanten` WHERE `ID` = '$klantenID';";
+                mysqli_query($conn, $QueryDeleteKlantAcc);
+
+                $_SESSION["loggedin"] = false;
+                header("location: index.php");
+            }
+
+
+            if(isset($_POST['WijzigenAccount']))
+            {//Delete Klant account
+
+                $klantenID = $_SESSION["KlantenID"];
+                $Naam = $_POST['Naam'];
+                $email = $_POST['Email'];
+                $telefoon = $_POST['Telefoon'];
+        
+                $QueryUpdateKlantAcc = "UPDATE klanten SET Naam = '$Naam', Email = '$email', Telefoon = '$telefoon'  WHERE ID = '$klantenID';";
+                mysqli_query($conn, $QueryUpdateKlantAcc);
+
+                header("location: ingelogd.php");
+            }
+
             $QueryTochten = "SELECT * FROM tochten";
             $resultTochten=$conn->query($QueryTochten);
             $varOptionSelectTochten = '';
@@ -92,7 +121,7 @@
     ?>
     
 
-    
+
     
 <!DOCTYPE html>
 <html lang="en">
@@ -146,7 +175,7 @@
             }
 
     ?>
-
+    <a onclick="OpenSwalAccount()">Account</a>
     <form action="ingelogd.php" method="post">
         <input type="submit" value="Uitloggen" name="AnnuleerInlog" class="form-control">
     </form>
@@ -186,6 +215,48 @@
         $varBoekingen .= '<input type="submit" class="btn btn-warning" name="AnnulerenSwal" value="Annuleren">';
         $varBoekingen .= '</form>';
 
+        $QueryKlanten = "SELECT * FROM klanten WHERE ID = '$klantenid'";
+        $resultKlanten=$conn->query($QueryKlanten);
+        if($stmt = mysqli_prepare($conn, $QueryKlanten)){
+            $rowKlanten = $resultKlanten->fetch_assoc();
+            if($rowKlanten != NULL)
+            {
+                $KNaam = $rowKlanten['Naam'];
+                $KEmail = $rowKlanten['Email'];
+                $KTelefoon = $rowKlanten['Telefoon'];
+            }else
+            {
+                $KNaam = 'Unkown';
+                $KEmail = 'Unkown';
+                $KTelefoon = 'Unkown';
+            }
+        }
+
+    //Maakt een form voor de Accounts
+    $varAccounts = '<form action="ingelogd.php" method="post" autocomplete="off">';
+    $varAccounts .= '<div>';
+    $varAccounts .= '<label>Naam</label>';
+    $varAccounts .= '<input type="text" placeholder="Naam" name="Naam" value="'.$KNaam.'">';
+    $varAccounts .= '</div>';
+    $varAccounts .= '<br />';
+    $varAccounts .= '<div>';
+    $varAccounts .= '<label>Email</label>';
+    $varAccounts .= '<input type="text" placeholder="Email" name="Email" value="'.$KEmail.'">';
+    $varAccounts .= '</div>';
+    $varAccounts .= '<br />';
+    $varAccounts .= '<div>';
+    $varAccounts .= '<label>Telefoon</label>';
+    $varAccounts .= '<input type="number" placeholder="Telefoon" name="Telefoon" value="'.$KTelefoon.'">';
+    $varAccounts .= '</div>';
+    $varAccounts .= '<br />';
+    $varAccounts .= '<br />';
+    $varAccounts .= '<input type="submit" class="btn btn-danger" name="DeleteAccount" value="Delete">';
+    $varAccounts .= '  ';
+    $varAccounts .= '<input type="submit" class="btn btn-warning" name="WijzigenAccount" value="Wijzigen">';
+    $varAccounts .= '  ';
+    $varAccounts .= '<input type="submit" class="btn btn-warning" name="AnnulerenSwal" value="Annuleren">';
+    $varAccounts .= '</form>';
+
     ?>
 
 
@@ -208,11 +279,30 @@
             }
             });
         }
-
+        
         function OpenSwalBoekingen()
         {
             var title = "Pincode Boekingen";
             var html = '<?php echo $varBoekingen;?>';
+
+            Swal.fire({
+            title: "<b><h2>"+title+"</h2></b>", 
+            html: html,  
+            showCancelButton: false, 
+            showConfirmButton: false,
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+            });
+        }
+
+        function OpenSwalAccount()
+        {
+            var title = "Account";
+            var html = '<?php echo $varAccounts;?>';
 
             Swal.fire({
             title: "<b><h2>"+title+"</h2></b>", 
