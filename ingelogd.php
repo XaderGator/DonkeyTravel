@@ -228,7 +228,7 @@
             {
                 $KNaam = 'Unkown';
                 $KEmail = 'Unkown';
-                $KTelefoon = 'Unkown';
+                $KTelefoon = 00000;
             }
         }
 
@@ -250,11 +250,11 @@
     $varAccounts .= '</div>';
     $varAccounts .= '<br />';
     $varAccounts .= '<br />';
-    $varAccounts .= '<input type="submit" class="btn btn-danger" name="DeleteAccount" value="Delete">';
+    $varAccounts .= '<button type="submit" class="btn btn-danger" name="DeleteAccount"> <i class="fas fa-trash-can"></i> Verwijderen </button>';
     $varAccounts .= '  ';
-    $varAccounts .= '<input type="submit" class="btn btn-warning" name="WijzigenAccount" value="Wijzigen">';
+    $varAccounts .= '<button type="submit" class="btn btn-warning" name="WijzigenAccount"><i class="fas fa-pencil"></i> Bewerken  </button>';
     $varAccounts .= '  ';
-    $varAccounts .= '<input type="submit" class="btn btn-warning" name="AnnulerenSwal" value="Annuleren">';
+    $varAccounts .= '<input type="submit" class="btn btn-outline-dark" name="AnnulerenSwal" value="Annuleren">';
     $varAccounts .= '</form>';
 
     ?>
