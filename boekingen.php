@@ -45,7 +45,7 @@
 <div class="dropdown">
   <button onclick="dropdownFunction()" class="dropbtn">Menu</button>
   <div id="myDropdown" class="dropdown-content">
-    <a href="boekingen.php">Home</a>
+    <a href="ingelogd.php">Home</a>
     <a href="#">Link 2</a>
     <form action="boekingen.php" method="post">
         <input type="submit" value="Uitloggen" name="Annuleer">
